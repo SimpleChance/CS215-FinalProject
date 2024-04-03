@@ -13,15 +13,17 @@ import genetic as g
 SETTINGS = {
     'Display Dimensions': (500, 500),
     'Max_Framerate': 60,
-
-    'Dimensions': (400, 400),
-    'Num Nodes': 75,
+    'TSP Instance': 'berlin52.tsp',
+    
+    'Random Nodes': True,
+    'Dimensions': (1000, 1000),
+    'Num Nodes': 250,
     'Start Node': 0,
     'End Node': 0,
 
     'Population Size': 250,
     'Max Generations': 1000,
-    'Elite Rate': 0.1,
+    'Elite Rate': 1,
     'Crossover Rate': 0.5,
     'Mutation Rate': 1,
 
@@ -59,6 +61,8 @@ def compute_distances(num_nodes, coords):
 def main():
     display_dimensions = SETTINGS['Display Dimensions']
     max_framerate = SETTINGS['Max_Framerate']
+    tsp_instance_path = SETTINGS['TSP Instance']
+    random_nodes = SETTINGS['Random Nodes']
     dimensions = SETTINGS['Dimensions']
     num_nodes = SETTINGS['Num Nodes']
     pop_size = SETTINGS['Population Size']
@@ -67,29 +71,49 @@ def main():
     cross_rate = SETTINGS['Crossover Rate']
     mutate_rate = SETTINGS['Mutation Rate']
     start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
-    mode = SETTINGS['Fullscreen']
+    fullscreen = SETTINGS['Fullscreen']
 
-    render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=mode,
+    render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
                                start_ind=start_node, end_ind=end_node)
 
-    print(f"\nNumber of nodes: {num_nodes}\n")
+    # If random node set
+    if random_nodes:
+        print(f"\nNumber of nodes: {num_nodes}\n")
 
-    # Generate set of nodes with random coords within specified dimensions
-    print(f"Generating random coordinates:")
-    coords, elapsed1 = timed(generate_random_coords, dimensions, num_nodes)
-    print(f"Time elapsed: {elapsed1}s\n")
+        # Generate set of nodes with random coords within specified dimensions
+        print(f"Generating random coordinates:")
+        coords, elapsed1 = timed(generate_random_coords, dimensions, num_nodes)
+        print(f"Time elapsed: {elapsed1}s\n")
+
+        # Create a set of available nodes to permute (start and ends node are not included)
+        # Nodes are given a value between 0 and num_nodes, this is their unique identifier
+        nodes = [i for i in range(num_nodes)]
+        nodes.remove(start_node)
+        if start_node != end_node:
+            nodes.remove(end_node)
+
+    # If pre-defined TSP Instance
+    # Currently, the node indexes and coordinates are parsed into 2 lists
+    else:
+        nodes = []
+        coords = []
+        print(f"TSP Instance: {tsp_instance_path}")
+        with open('TSP Instances/'+tsp_instance_path) as tsp_instance_file:
+            lines = [line.rstrip() for line in tsp_instance_file]
+
+        num_nodes = int(lines[3][11::])
+        for i in range(num_nodes):
+            tmp = lines[6+i].split(sep=' ')
+            nodes.append(int(tmp[0]))
+            coords.append([float(tmp[1]), float(tmp[2])])
+        print(num_nodes)
+        print(nodes)
+        print(coords)
 
     # Calculate the distance between each node
     print(f"Computing distances:")
     distances, elapsed2 = timed(compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
-
-    # Create a set of available nodes to permute (start and ends node are not included)
-    # Nodes are given a value between 0 and num_nodes, this is their unique identifier
-    nodes = [i for i in range(num_nodes)]
-    nodes.remove(start_node)
-    if start_node != end_node:
-        nodes.remove(end_node)
 
     '''
     # Create a BF object with the available nodes and distances
