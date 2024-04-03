@@ -17,7 +17,7 @@ SETTINGS = {
     'Dimensions': (400, 400),
     'Num Nodes': 75,
     'Start Node': 0,
-    'End Node': 1,
+    'End Node': 0,
 
     'Population Size': 250,
     'Max Generations': 1000,
@@ -25,10 +25,11 @@ SETTINGS = {
     'Crossover Rate': 0.5,
     'Mutation Rate': 1,
 
-    'Mode': 0
+    'Fullscreen': False
 }
 
 
+# Used to time other functions
 def timed(func, *args, **kwargs):
     t1 = t.perf_counter()
     result = func(*args, **kwargs)
@@ -37,10 +38,12 @@ def timed(func, *args, **kwargs):
     return result, elapsed
 
 
+# Generates random coordinates for every node. Returns a list of coordinate pairs
 def generate_random_coords(dimensions, num_nodes):
     return [[np.random.randint(0, dimensions[0]), np.random.randint(0, dimensions[1])] for _ in range(num_nodes)]
 
 
+# Computes the distance matrix for all nodes. Returns 2-D array of distances where each index is a node
 def compute_distances(num_nodes, coords):
     distance_matrix = np.empty((num_nodes, num_nodes), dtype=float)
     for i in range(num_nodes):
@@ -64,7 +67,8 @@ def main():
     cross_rate = SETTINGS['Crossover Rate']
     mutate_rate = SETTINGS['Mutation Rate']
     start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
-    mode = SETTINGS['Mode']
+    mode = SETTINGS['Fullscreen']
+
     render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=mode,
                                start_ind=start_node, end_ind=end_node)
 
@@ -80,7 +84,8 @@ def main():
     distances, elapsed2 = timed(compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
 
-    # Create a set of available nodes to permute (start and end node are not included)
+    # Create a set of available nodes to permute (start and ends node are not included)
+    # Nodes are given a value between 0 and num_nodes, this is their unique identifier
     nodes = [i for i in range(num_nodes)]
     nodes.remove(start_node)
     if start_node != end_node:
@@ -123,6 +128,7 @@ def main():
     genetic_a.find_avg_fit()
     genetic_a.find_gen_best_fit()
 
+    # Use tqdm to track overall completion
     for _ in tqdm(range(max_gens)):
 
         # Calculate Parent probabilities
@@ -150,6 +156,7 @@ def main():
         render_window.draw_frame(coords, genetic_a.best.genes)
         r.event_listen()
 
+    # Compile fitness data into matplot chart
     x = list(range(max_gens+1))
     y1 = genetic_a.avg_gen_fits
     y2 = genetic_a.gen_best_fits
@@ -166,6 +173,7 @@ def main():
     print(f"Gen {max_gens} Best: {genetic_a.best}")
     print(f"Gen {max_gens} Worst: {genetic_a.generations[-1][-1]}")
 
+    # Listen for user input to quit program
     while True:
         r.event_listen()
 
