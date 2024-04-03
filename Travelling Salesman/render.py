@@ -15,8 +15,9 @@ def event_listen():
 
 
 class Renderer(object):
-    def __init__(self, display_dimensions, dimensions, max_framerate, fullscreen=False, colors=None, node_radius=5,
-                 path_width=2, border_width=3, node_space_offset=(0, 0), start_ind=0, end_ind=0):
+    def __init__(self, display_dimensions, dimensions, max_framerate, scale=0.5, fullscreen=False,
+                 colors=None, node_radius=5, path_width=2, border_width=3, start_ind=0,
+                 end_ind=0):
         if not pg.get_init():
             pg.init()
             pg.display.init()
@@ -33,10 +34,11 @@ class Renderer(object):
         self.max_framerate = max_framerate
         self.display_dimensions = display_dimensions
 
+        self.scale = scale
         self.dimensions = dimensions
-        self.node_space_offset = node_space_offset
-        self.display_offset = [(display_dimensions[0] - dimensions[0]) // 2,
-                               (display_dimensions[1] - dimensions[1]) // 2]
+        self.node_to_display_scale_x = (display_dimensions[0] / dimensions[0]) * scale
+        self.node_to_display_scale_y = (display_dimensions[1] / dimensions[1]) * scale
+        self.display_offset = [0, 0]
 
         self.node_radius = node_radius
         self.path_width = path_width
@@ -63,15 +65,19 @@ class Renderer(object):
         pg.display.flip()
 
     def conv_to_render_coords(self, node):
-        return [node[0] + self.display_offset[0] + self.node_space_offset[0],
-                node[1] + self.display_offset[1] + self.node_space_offset[1]]
+        return [(node[0] * self.node_to_display_scale_x) + self.display_offset[0],
+                (node[1] * self.node_to_display_scale_y) + self.display_offset[1]]
 
     def draw_background(self):
         self.screen.fill(self.background_color)
 
     def draw_node_space_border(self):
-        x, y = self.conv_to_render_coords((-self.node_radius*4, -self.node_radius*4))
-        l, w = self.dimensions[0] + self.node_radius*8, self.dimensions[1] + self.node_radius*8
+        x, y = self.conv_to_render_coords([0, 0])
+        x -= self.node_radius*2
+        y -= self.node_radius*2
+        l, w = self.conv_to_render_coords([self.dimensions[0] * self.scale, self.dimensions[1] * self.scale])
+        l += self.node_radius*4
+        w += self.node_radius*4
         pg.draw.rect(self.screen, self.border_color, (x, y, l, w), width=self.border_width)
 
     def draw_nodes(self, coords):
