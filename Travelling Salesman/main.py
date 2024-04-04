@@ -5,26 +5,27 @@ Divide and Conquer, and Genetic Evolution.
 from tqdm import tqdm
 import numpy as np
 from matplotlib import pyplot as plt
+from os.path import exists
 import time as t
 import render as r
 import bruteforce as bf
 import genetic as g
 
 SETTINGS = {
-    'Display Dimensions': (500, 500),
+    'Display Dimensions': (750, 600),
     'Max_Framerate': 60,
-    'TSP Instance': 'berlin52.tsp',
+    'TSP Instance': 'berlin52',
     
-    'Random Nodes': True,
+    'Random Nodes': False,
     'Dimensions': (1000, 1000),
-    'Num Nodes': 250,
+    'Num Nodes': 100,
     'Start Node': 0,
     'End Node': 0,
 
-    'Population Size': 250,
-    'Max Generations': 1000,
-    'Elite Rate': 1,
-    'Crossover Rate': 0.5,
+    'Population Size': 300,
+    'Max Generations': 500,
+    'Elite Rate': 0.15,
+    'Crossover Rate': 1,
     'Mutation Rate': 1,
 
     'Fullscreen': False
@@ -61,7 +62,7 @@ def compute_distances(num_nodes, coords):
 def main():
     display_dimensions = SETTINGS['Display Dimensions']
     max_framerate = SETTINGS['Max_Framerate']
-    tsp_instance_path = SETTINGS['TSP Instance']
+    tsp_instance_name = SETTINGS['TSP Instance']
     random_nodes = SETTINGS['Random Nodes']
     dimensions = SETTINGS['Dimensions']
     num_nodes = SETTINGS['Num Nodes']
@@ -72,9 +73,7 @@ def main():
     mutate_rate = SETTINGS['Mutation Rate']
     start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
     fullscreen = SETTINGS['Fullscreen']
-
-    render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
-                               start_ind=start_node, end_ind=end_node)
+    opt_tour = None
 
     # If random node set
     if random_nodes:
@@ -92,28 +91,48 @@ def main():
         if start_node != end_node:
             nodes.remove(end_node)
 
-    # If pre-defined TSP Instance
-    # Currently, the node indexes and coordinates are parsed into 2 lists
+    # If pre-defined TSP Instance. Must redefine nodes and coords lists.
     else:
         nodes = []
         coords = []
-        print(f"TSP Instance: {tsp_instance_path}")
-        with open('TSP Instances/'+tsp_instance_path) as tsp_instance_file:
+        print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
+        with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
             lines = [line.rstrip() for line in tsp_instance_file]
 
+        # Parses the .tsp file into nodes list, coords list, and finds the new dimensions
         num_nodes = int(lines[3][11::])
+        new_dim = [0, 0]
         for i in range(num_nodes):
             tmp = lines[6+i].split(sep=' ')
             nodes.append(int(tmp[0]))
-            coords.append([float(tmp[1]), float(tmp[2])])
-        print(num_nodes)
-        print(nodes)
-        print(coords)
+            tmp_x, tmp_y = int(float(tmp[1])), int(float(tmp[2]))
+            coords.append([tmp_x, tmp_y])
+            if tmp_x > new_dim[0]:
+                new_dim[0] = tmp_x
+            if tmp_y > new_dim[1]:
+                new_dim[1] = tmp_y
+        dimensions = new_dim
+
+        # Load the optimum tour if there is one
+        if exists('TSP Instances/' + tsp_instance_name + '.opt.tour'):
+            with open('TSP Instances/' + tsp_instance_name + '.opt.tour') as opt_tour_file:
+                lines = [line.rstrip() for line in opt_tour_file]
+
+            opt_tour = []
+            for i in range(num_nodes):
+                tmp = lines[4+i]
+                opt_tour.append(int(tmp) - 1)
+            opt_tour.append(0)
+        print(opt_tour)
 
     # Calculate the distance between each node
     print(f"Computing distances:")
     distances, elapsed2 = timed(compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
+
+    # Create Renderer object to display TSP instance and walks
+    render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
+                               start_ind=start_node, end_ind=end_node)
 
     '''
     # Create a BF object with the available nodes and distances
@@ -176,8 +195,10 @@ def main():
         # Sort population once again for rendering the best path
         genetic_a.sort_population_by_fitness()
 
-        # Draw the best path so far and check for pygame events
-        render_window.draw_frame(coords, genetic_a.best.genes)
+        # Draw the best path so far, the optimum tour if there is one, pass info to renderer as text,
+        # and check for pygame events
+        text = [f"{genetic_a.best.genes}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}"]
+        render_window.draw_frame(coords, genetic_a.best.genes, text, opt_tour)
         r.event_listen()
 
     # Compile fitness data into matplot chart
@@ -191,11 +212,17 @@ def main():
     plt.plot(x, y2)
     plt.show()
 
-    print(f"Gen 0 Best: {genetic_a.generations[0][0]}")
-    print(f"Gen 0 Worst: {genetic_a.generations[0][-1]}")
+    print(f"Gen 0 Best: {genetic_a.generations[0][0].fitness}")
+    print(f"Gen 0 Worst: {genetic_a.generations[0][-1].fitness}")
     print()
-    print(f"Gen {max_gens} Best: {genetic_a.best}")
-    print(f"Gen {max_gens} Worst: {genetic_a.generations[-1][-1]}")
+    print(f"Gen {max_gens} Best: {genetic_a.best.fitness}")
+    print(f"Gen {max_gens} Worst: {genetic_a.generations[-1][-1].fitness}")
+    print()
+
+    if opt_tour:
+        opt_tour_ind = g.Individual(opt_tour, np.inf)
+        genetic_a.evaluate_individual(opt_tour_ind)
+        print(f"Optimum Tour Fitness: {opt_tour_ind.fitness}")
 
     # Listen for user input to quit program
     while True:
