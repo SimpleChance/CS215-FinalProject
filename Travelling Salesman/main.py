@@ -14,7 +14,7 @@ import genetic as g
 SETTINGS = {
     'Display Dimensions': (750, 600),
     'Max_Framerate': 60,
-    'TSP Instance': 'berlin52',
+    'TSP Instance': 'att48',
     
     'Random Nodes': False,
     'Dimensions': (1000, 1000),
@@ -22,7 +22,7 @@ SETTINGS = {
     'Start Node': 0,
     'End Node': 0,
 
-    'Population Size': 300,
+    'Population Size': 500,
     'Max Generations': 500,
     'Elite Rate': 0.15,
     'Crossover Rate': 1,
