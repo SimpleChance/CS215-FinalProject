@@ -102,6 +102,7 @@ class GA(object):
         self.generations = []
         self.max_gens = max_gens
         self.avg_gen_fits = []
+        self.avg_gen_fit = 0
         self.gen_best_fits = []
         self.population = []
         self.offspring_list = []
@@ -153,6 +154,7 @@ class GA(object):
             s += i.fitness
         s /= self.population_size
         self.avg_gen_fits.append(s)
+        self.avg_gen_fit = s
 
     def find_gen_best_fit(self):
         self.gen_best_fits.append(self.best.fitness)
