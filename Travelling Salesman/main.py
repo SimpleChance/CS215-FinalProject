@@ -7,23 +7,25 @@ import numpy as np
 from matplotlib import pyplot as plt
 from os.path import exists
 import time as t
+import tsp
 import render as r
 import bruteforce as bf
 import genetic as g
 
 SETTINGS = {
     'Display Dimensions': (750, 600),
-    'Max_Framerate': 60,
+    'Max_Framerate': 30,
     'TSP Instance': 'att48',
+    "Display": True,
     
-    'Random Nodes': False,
+    'Random Nodes': True,
     'Dimensions': (1000, 1000),
-    'Num Nodes': 100,
+    'Num Nodes': 25,
     'Start Node': 0,
     'End Node': 0,
 
-    'Population Size': 500,
-    'Max Generations': 500,
+    'Population Size': 50,
+    'Max Generations': 250,
     'Elite Rate': 0.15,
     'Crossover Rate': 1,
     'Mutation Rate': 1,
@@ -39,24 +41,6 @@ def timed(func, *args, **kwargs):
     t2 = t.perf_counter()
     elapsed = t2 - t1
     return result, elapsed
-
-
-# Generates random coordinates for every node. Returns a list of coordinate pairs
-def generate_random_coords(dimensions, num_nodes):
-    return [[np.random.randint(0, dimensions[0]), np.random.randint(0, dimensions[1])] for _ in range(num_nodes)]
-
-
-# Computes the distance matrix for all nodes. Returns 2-D array of distances where each index is a node
-def compute_distances(num_nodes, coords):
-    distance_matrix = np.empty((num_nodes, num_nodes), dtype=float)
-    for i in range(num_nodes):
-        for j in range(num_nodes):
-            if i != j:
-                x1, y1 = coords[i]
-                x2, y2 = coords[j]
-                d = (x2 - x1)**2 + (y2 - y1)**2
-                distance_matrix[i][j] = np.sqrt(d)
-    return distance_matrix
 
 
 def main():
@@ -81,7 +65,7 @@ def main():
 
         # Generate set of nodes with random coords within specified dimensions
         print(f"Generating random coordinates:")
-        coords, elapsed1 = timed(generate_random_coords, dimensions, num_nodes)
+        coords, elapsed1 = timed(tsp.generate_random_coords, dimensions, num_nodes)
         print(f"Time elapsed: {elapsed1}s\n")
 
         # Create a set of available nodes to permute (start and ends node are not included)
@@ -93,73 +77,51 @@ def main():
 
     # If pre-defined TSP Instance. Must redefine nodes and coords lists.
     else:
-        nodes = []
-        coords = []
         print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
         with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
             lines = [line.rstrip() for line in tsp_instance_file]
 
-        # Parses the .tsp file into nodes list, coords list, and finds the new dimensions
-        num_nodes = int(lines[3][11::])
-        new_dim = [0, 0]
-        for i in range(num_nodes):
-            tmp = lines[6+i].split(sep=' ')
-            nodes.append(int(tmp[0]))
-            tmp_x, tmp_y = int(float(tmp[1])), int(float(tmp[2]))
-            coords.append([tmp_x, tmp_y])
-            if tmp_x > new_dim[0]:
-                new_dim[0] = tmp_x
-            if tmp_y > new_dim[1]:
-                new_dim[1] = tmp_y
-        dimensions = new_dim
+        num_nodes, nodes, coords, dimensions = tsp.parse_instance(lines)
 
         # Load the optimum tour if there is one
         if exists('TSP Instances/' + tsp_instance_name + '.opt.tour'):
             with open('TSP Instances/' + tsp_instance_name + '.opt.tour') as opt_tour_file:
                 lines = [line.rstrip() for line in opt_tour_file]
 
-            opt_tour = []
-            for i in range(num_nodes):
-                tmp = lines[4+i]
-                opt_tour.append(int(tmp) - 1)
-            opt_tour.append(0)
+        opt_tour = tsp.parse_opt_tour(lines)
         print(opt_tour)
 
     # Calculate the distance between each node
     print(f"Computing distances:")
-    distances, elapsed2 = timed(compute_distances, num_nodes, coords)
+    distances, elapsed2 = timed(tsp.compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
 
+    # Limit brute force to max of 12 nodes
+    if num_nodes <= 12:
+        # Create a BF object with the available nodes and distances
+        brute_f = bf.BF(nodes, distances, start_ind=start_node, end_ind=end_node)
+
+        # Exhaustively generate all permutations of the available nodes
+        brute_f.generate_perms(progress=True)
+
+        # Iterate over all permutations and return the best one
+        result = brute_f.brute_force_search(progress=True)
+
+        print(f"Best path: {result[0]}\nLength: {result[1]}")
+        print()
+
     # Create Renderer object to display TSP instance and walks
-    render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
-                               start_ind=start_node, end_ind=end_node)
-
-    '''
-    # Create a BF object with the available nodes and distances
-    brute_f = bf.BF(nodes, distances, start_ind=start_node, end_ind=end_node)
-
-    # Exhaustively generate all permutations of the available nodes
-    print(f"Generating permutations:")
-    result, elapsed3 = timed(brute_f.generate_perms)
-    print(f"Time elapsed: {elapsed3}s")
-    print(f"Length of permutation array: {brute_f.perms_length}\n")
-
-    # Iterate over all permutations and return the best one
-    print(f"Scanning permutations:")
-    result, elapsed4 = timed(brute_f.brute_force_search)
-    print(f"Time elapsed: {elapsed4}s\n")
-
-    print(f"Best path: {result[0]}\nLength: {result[1]}")
-    '''
+    if SETTINGS['Display']:
+        render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
+                                   start_ind=start_node, end_ind=end_node)
 
     # Create a GA object with specified params
     genetic_a = g.GA(num_nodes, pop_size, cross_rate, mutate_rate, distances, elite_rate, max_gens,
                      start_ind=start_node, end_ind=end_node)
 
+    print(f"Starting Genetic Algorithm:")
     # Initialize Generation 0
-    print(f"Initializing Generation 0:")
-    result, elapsed5 = timed(genetic_a.initialize_population)
-    print(f"Time elapsed: {elapsed5}s\n")
+    genetic_a.initialize_population()
 
     # Evaluate the population
     genetic_a.evaluate_population()
@@ -197,9 +159,10 @@ def main():
 
         # Draw the best path so far, the optimum tour if there is one, pass info to renderer as text,
         # and check for pygame events
-        text = [f"{genetic_a.best.genes}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}"]
-        render_window.draw_frame(coords, genetic_a.best.genes, text, opt_tour)
-        r.event_listen()
+        if SETTINGS['Display']:
+            text = [f"{genetic_a.best.genes}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}"]
+            render_window.draw_frame(coords, genetic_a.best.genes, text, opt_tour)
+            r.event_listen()
 
     # Compile fitness data into matplot chart
     x = list(range(max_gens+1))
@@ -225,8 +188,9 @@ def main():
         print(f"Optimum Tour Fitness: {opt_tour_ind.fitness}")
 
     # Listen for user input to quit program
-    while True:
-        r.event_listen()
+    if SETTINGS['Display']:
+        while True:
+            r.event_listen()
 
 
 if __name__ == '__main__':
