@@ -2,7 +2,6 @@
 Class file for Brute Force solution to the Travelling Salesman problem
 """
 from tqdm import tqdm
-import itertools as it
 
 
 class BF(object):
