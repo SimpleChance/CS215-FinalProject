@@ -20,6 +20,15 @@ test2_genetic.py is a script to collect time data for our genetic algorithm base
 
 test3_genetic.py is a script to collect fitness data for our genetic algorithm and compare it to know optimum paths
 
+To install packages, cd into ...\CS215-FinalProject and paste the following into the terminal:
+- pip install numpy
+- pip install matplotlib
+- pip install pygame
+- pip install tqdm
+
+To run the main demo, cd into ...\CS215-FinalProject\'Travelling Salesman' and paste the following into the terminal:
+- ./main.py
+
 TODO:
   - Divide and Conquer class file
-  - Polish visuals for demoing GA (pygame) and algorithm comparisons (matplotlib)
+  - Run tests and save data for each algorithm
