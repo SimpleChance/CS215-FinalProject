@@ -2,15 +2,16 @@
 Script for testing the Brute Force algorithm to solve TSP
 """
 from matplotlib import pyplot as plt
+import numpy as np
+from tqdm import tqdm
 import time
 import tsp
 import bruteforce as bf
 
 
 SETTINGS = {
-    'Batch Size': 10,
-    'Random Nodes': True,
-    'Max Num Nodes': 11,
+    'Batch Size': 100,
+    'Max Num Nodes': 10,
     'Dimensions': (500, 500),
     'Start Node': 0,
     'End Node': 0
@@ -23,13 +24,14 @@ def main():
     dimensions = SETTINGS['Dimensions']
     start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
 
-    data_x = []
+    data_x = [_ for _ in range(4, max_num_nodes+1)]
     data_y = []
     for i in range(batch_size):
-        data_x.append([_ for _ in range(3, max_num_nodes+1)])
         data_y.append([])
+
+    progress_bar = tqdm(total=batch_size, desc='Running Tests...')
     for i in range(batch_size):
-        for num_nodes in range(3, max_num_nodes+1):
+        for num_nodes in range(4, max_num_nodes+1):
             t1 = time.perf_counter()
 
             nodes = [i for i in range(num_nodes)]
@@ -50,15 +52,25 @@ def main():
 
             data_y[i].append(elapsed)
 
-            print(f"Best: {best}\nLength: {best_length}")
-            print(f"Number of perms: {len(perms)}")
-            print(f"Elapsed time: {elapsed}")
+        progress_bar.update(1)
+
+    avg_elapsed = []
+    for i in range(len(data_x)):
+        tmp = 0
+        for j in range(batch_size):
+            tmp += data_y[j][i]
+        tmp /= batch_size
+        avg_elapsed.append(tmp)
+    x = np.array(data_x)
+    y = np.array(avg_elapsed)
 
     for i in range(batch_size):
-        plt.plot(data_x[i], data_y[i])
+        plt.plot(x, data_y[i])
+    plt.scatter(x, y, color=(0, 0, 0), label='Average time elapsed')
     plt.title(f"Time to Perform Brute Force Search on N Nodes | Batch Size = {batch_size}")
     plt.xlabel("Num Nodes")
     plt.ylabel("Time (s)")
+    plt.legend(loc="upper left")
     plt.show()
 
 
