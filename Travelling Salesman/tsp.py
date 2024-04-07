@@ -1,12 +1,15 @@
 """
 File for TSP related methods
 """
-
-from os.path import exists
 import numpy as np
 
 
 def parse_instance(text):
+    """
+        Description: Parses a .tsp instance for relevant information.
+        Args: list[string]
+        Returns: int, list[int], list[list[int]], list[int]
+    """
     nodes = []
     coords = []
     dimensions = [0, 0]
@@ -26,6 +29,11 @@ def parse_instance(text):
 
 
 def parse_opt_tour(text):
+    """
+        Description: Parses a .opt.tsp instance into a list of nodes.
+        Args: list[string]
+        Returns: list[int]
+    """
     opt_tour = []
     num_nodes = int(text[2].split(sep=' ')[2])
     for i in range(num_nodes):
@@ -36,11 +44,24 @@ def parse_opt_tour(text):
 
 
 def generate_random_coords(dimensions, num_nodes):
+    """
+        Description: Generates random coordinates within the specified dimensions for a number of specified nodes
+        Args: list[int], int
+        Returns: list[list[int]]
+        Time Complexity: O(n) : n = num nodes
+    """
     return [[np.random.randint(0, dimensions[0]), np.random.randint(0, dimensions[1])]
             for _ in range(num_nodes)]
 
 
 def compute_distances(num_nodes, coords):
+    """
+        Description: Computes the distances between all given nodes and stores them in a matrix.
+        Args: int, list[list[int]]
+        Returns: list[list[float]]
+        Time Complexity: O(n^2) : n = num nodes
+    """
+    # Array of size n by n where array[i][j] is the distance between node i and j
     distance_matrix = np.empty((num_nodes, num_nodes), dtype=float)
     for i in range(num_nodes):
         for j in range(num_nodes):
