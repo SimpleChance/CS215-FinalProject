@@ -3,6 +3,8 @@ Chance Jewell, Cade Parlato, Jacob Gibson
 This repository contains all files associated with our CS215 Final Project - Analysis of Brute Force, Divide and Conquer, and Genetic Algorithms for Solving TSP.
 
 Class files, test files, and the main script for the TSP demo are under the Travelling Salesman folder.
+Matplotlib figures from the test scripts are saved in the Test Results folder.
+.opt.tsp and .tsp instance files are saved in the TSP Instances folder.
 
 - tsp.py contains parsing and precompute methods for tsp instances ~ dependencies: numpy
 - bruteforce.py contains the BF class and associated methods ~ dependencies: tqdm
@@ -18,7 +20,7 @@ test1_genetic.py is a script to collect time data for our genetic algorithm base
 
 test2_genetic.py is a script to collect time data for our genetic algorithm based on variable population size.
 
-test3_genetic.py is a script to collect fitness data for our genetic algorithm and compare it to know optimum paths
+test3_genetic.py is a script to collect time data for our genetic algorithm based on variable maximum generations.
 
 To install packages, cd into ...\CS215-FinalProject and paste the following into the terminal:
 - pip install numpy
