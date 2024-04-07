@@ -1,5 +1,5 @@
 """
-Render class and methods for Travelling Salesman:
+Render class and methods for TravellingSalesman:
 """
 import pygame as pg
 from sys import exit
@@ -34,7 +34,7 @@ class Renderer(object):
         if not pg.get_init():
             pg.init()
             pg.display.init()
-            pg.display.set_caption('Travelling Salesman Visualization')
+            pg.display.set_caption('TravellingSalesman Visualization')
 
         # Determine dimensions and update screen variable
         if fullscreen:
