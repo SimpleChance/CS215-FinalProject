@@ -18,14 +18,14 @@ SETTINGS = {
     'TSP Instance': 'att48',
     "Display": True,
     
-    'Random Nodes': False,
+    'Random Nodes': True,
     'Dimensions': (1000, 1000),
     'Num Nodes': 75,
     'Start Node': 0,
     'End Node': 0,
 
-    'Population Size': 250,
-    'Max Generations': 500,
+    'Population Size': 100,
+    'Max Generations': 1000,
     'Elite Rate': 0,
     'Crossover Rate': 1,
     'Mutation Rate': 1,
@@ -167,7 +167,8 @@ def main():
         # Draw the best path so far, the optimum tour if there is one, pass info to renderer as text,
         # and check for pygame events
         if SETTINGS['Display']:
-            text = [f"{gen} / {max_gens}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}", f"{num_nodes}"]
+            text = [f"{gen+1} / {max_gens}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}", f"{num_nodes}",
+                    f"{pop_size}", f"{elite_rate}", f"{cross_rate}", f"{mutate_rate}"]
             if opt_tour:
                 text.append(f"{opt_tour_ind.fitness}")
             render_window.draw_frame(genetic_a.best.genes, text, opt_tour)

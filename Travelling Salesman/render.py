@@ -56,9 +56,9 @@ class Renderer(object):
         # Variables to scale and shift tsp dimensions to display dimensions
         self.scale = scale
         self.dimensions = dimensions
-        self.node_to_display_scale_x = (display_dimensions[0] / dimensions[0]) * scale
+        self.node_to_display_scale_x = (display_dimensions[0] / dimensions[0]) * (scale * 1.5)
         self.node_to_display_scale_y = (display_dimensions[1] / dimensions[1]) * scale
-        self.display_offset = [(dimensions[0] * self.node_to_display_scale_x) // 2,
+        self.display_offset = [(dimensions[0] * self.node_to_display_scale_x) // 2 - int(self.display_dimensions[0] / 4),
                                (dimensions[1] * self.node_to_display_scale_y) // 2]
         self.node_space_offset = [0, -100]
 
@@ -202,7 +202,7 @@ class Renderer(object):
             self.draw_path(path)
             self.draw_header(f"Known Optimum:",
                              [x + self.border_l - 135, y + 65])
-            self.draw_text(text[4],
+            self.draw_text(text[-1],
                            (x + self.border_l - 135, y + 90))
         else:
             self.draw_path(path)
@@ -215,11 +215,24 @@ class Renderer(object):
         self.draw_header(f"Generation: ",
                          [x + 15, y + 10])
         self.draw_text(text[0], (x + 15, y + 35))
-        self.draw_header(f"Best Fitness:",
+        self.draw_header(f"Elite Rate:",
+                         [x + self.border_l // 2 - 50, y + 10])
+        self.draw_text(text[5], (x + self.border_l // 2 - 50, y + 35))
+        self.draw_header(f"Cross Rate:",
+                         [x + self.border_l // 2 - 50, y + 65])
+        self.draw_text(text[6], (x + self.border_l // 2 - 50, y + 90))
+        self.draw_header(f"Mutation Rate:",
+                         [x + self.border_l // 2 - 50, y + 120])
+        self.draw_text(text[7], (x + self.border_l // 2 - 50, y + 145))
+        self.draw_header(f"Population: ",
                          [x + 15, y + 65])
-        self.draw_text(text[1], (x + 15, y + 90))
-        self.draw_header(f"Average Fitness:",
+        self.draw_text(text[4], (x + 15, y + 90))
+        self.draw_header(f"Best Fitness:",
                          [x + 15, y + 120])
-        self.draw_text(text[2], (x + 15, y + 145))
+        self.draw_text(text[1], (x + 15, y + 145))
+        self.draw_header(f"Average Fitness:",
+                         [x + 15, y + 175])
+        self.draw_text(text[2], (x + 15, y + 200))
+
         # Update the screen
         self.update()
