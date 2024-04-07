@@ -8,9 +8,9 @@ import bruteforce as bf
 
 
 SETTINGS = {
-    'Batch Size': 20,
+    'Batch Size': 10,
     'Random Nodes': True,
-    'Max Num Nodes': 10,
+    'Max Num Nodes': 11,
     'Dimensions': (500, 500),
     'Start Node': 0,
     'End Node': 0
