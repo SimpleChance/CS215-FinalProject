@@ -18,15 +18,15 @@ SETTINGS = {
     'TSP Instance': 'att48',
     "Display": True,
     
-    'Random Nodes': True,
+    'Random Nodes': False,
     'Dimensions': (1000, 1000),
-    'Num Nodes': 25,
+    'Num Nodes': 75,
     'Start Node': 0,
     'End Node': 0,
 
-    'Population Size': 50,
-    'Max Generations': 250,
-    'Elite Rate': 0.15,
+    'Population Size': 250,
+    'Max Generations': 500,
+    'Elite Rate': 0,
     'Crossover Rate': 1,
     'Mutation Rate': 1,
 
@@ -112,12 +112,17 @@ def main():
 
     # Create Renderer object to display TSP instance and walks
     if SETTINGS['Display']:
-        render_window = r.Renderer(display_dimensions, dimensions, max_framerate, fullscreen=fullscreen,
+        render_window = r.Renderer(display_dimensions, dimensions, coords, max_framerate, fullscreen=fullscreen,
                                    start_ind=start_node, end_ind=end_node)
 
     # Create a GA object with specified params
     genetic_a = g.GA(num_nodes, pop_size, cross_rate, mutate_rate, distances, elite_rate, max_gens,
                      start_ind=start_node, end_ind=end_node)
+
+    if opt_tour:
+        opt_tour_ind = g.Individual(opt_tour, np.inf)
+        genetic_a.evaluate_individual(opt_tour_ind, opt_tour=True)
+        print(f"Optimum Tour Fitness: {opt_tour_ind.fitness}")
 
     print(f"Starting Genetic Algorithm:")
     # Initialize Generation 0
@@ -134,7 +139,9 @@ def main():
     genetic_a.find_gen_best_fit()
 
     # Use tqdm to track overall completion
+    gen = -1
     for _ in tqdm(range(max_gens)):
+        gen += 1
 
         # Calculate Parent probabilities
         genetic_a.find_parent_probabilities()
@@ -160,8 +167,10 @@ def main():
         # Draw the best path so far, the optimum tour if there is one, pass info to renderer as text,
         # and check for pygame events
         if SETTINGS['Display']:
-            text = [f"{genetic_a.best.genes}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}"]
-            render_window.draw_frame(coords, genetic_a.best.genes, text, opt_tour)
+            text = [f"{gen} / {max_gens}", f"{genetic_a.best.fitness}", f"{genetic_a.avg_gen_fit}", f"{num_nodes}"]
+            if opt_tour:
+                text.append(f"{opt_tour_ind.fitness}")
+            render_window.draw_frame(genetic_a.best.genes, text, opt_tour)
             r.event_listen()
 
     # Compile fitness data into matplot chart
@@ -181,11 +190,6 @@ def main():
     print(f"Gen {max_gens} Best: {genetic_a.best.fitness}")
     print(f"Gen {max_gens} Worst: {genetic_a.generations[-1][-1].fitness}")
     print()
-
-    if opt_tour:
-        opt_tour_ind = g.Individual(opt_tour, np.inf)
-        genetic_a.evaluate_individual(opt_tour_ind)
-        print(f"Optimum Tour Fitness: {opt_tour_ind.fitness}")
 
     # Listen for user input to quit program
     if SETTINGS['Display']:
