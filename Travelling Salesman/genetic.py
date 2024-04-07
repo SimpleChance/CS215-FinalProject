@@ -329,7 +329,7 @@ class GA(object):
         r = np.random.randint(0, len(p1))
         new_genes = p1[:r]
 
-        # Fill in ramaining genes from p2
+        # Fill in remaining genes from p2
         for gene in p2:
             if gene not in new_genes:
                 new_genes.append(gene)
