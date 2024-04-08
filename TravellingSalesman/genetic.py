@@ -135,7 +135,7 @@ def displacement_mutation(offspring):
     del offspring.genes[s:m]
 
     # Insert the deleted chromosomes at a random position
-    r = np.random.randint(1, len(offspring.genes) - 1)
+    r = np.random.randint(1, len(offspring.genes))
     for i in range(len(tmp)):
         offspring.genes.insert(r, tmp[i])
         r += 1

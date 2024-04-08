@@ -13,24 +13,25 @@ import bruteforce as bf
 import genetic as g
 
 SETTINGS = {
-    'Display Dimensions': (750, 600),
-    'Max_Framerate': 30,
-    'TSP Instance': 'att48',
-    "Display": True,
+    'Display Dimensions': (750, 600),   # Display Resolution. Keep default for small window.
+    'Max_Framerate': -3,                # Maximum framerate the animation will play at.
+    'TSP Instance': 'att48',            # .tsp file name
+    "Display": True,                    # Boolean to determine if the animation should play.
     
-    'Random Nodes': True,
-    'Dimensions': (1000, 1000),
-    'Num Nodes': 8,
-    'Start Node': 0,
-    'End Node': 0,
+    'Random Nodes': True,               # Determines if random nodes should be used. Keep true if no .tsp file is given.
+    'Dimensions': (1000, 1000),         # Max and min coords for nodes.
+    'Num Nodes': 0,                    # Brute force will be disabled for node spaces larger than 12.
+    'Start Node': -1,                    # Index of start node.
+    'End Node': 5456,                      # Index of end node.
 
-    'Population Size': 100,
-    'Max Generations': 1000,
-    'Elite Rate': 0,
-    'Crossover Rate': 1,
-    'Mutation Rate': 1,
+    'Population Size': 0,             # Population size for the genetic algorithm.
+    'Max Generations': 1000,            # Maximum number of generations for the genetic algorithm.
+    'Elite Rate': 0,                    # Determines how many individuals from the previous epoch will survive. (0-1)
+    'Crossover Rate': 1,                # Determines how many individuals will reproduce. (0-1)
+    'Mutation Rate': 1,                 # Determines the frequency of offspring mutations. (0-1)
 
-    'Fullscreen': False
+    'Fullscreen': False                 # Determines if fullscreen should be toggled.
+                                        # (May alter position of text during animation)
 }
 
 
@@ -44,18 +45,44 @@ def timed(func, *args, **kwargs):
 
 
 def main():
+    """
+    Start of precompute and initialization
+    """
+    # Checks for valid program settings
     display_dimensions = SETTINGS['Display Dimensions']
     max_framerate = SETTINGS['Max_Framerate']
+    if max_framerate < 1:
+        print(f"Invalid maximum framerate given. Setting max_framerate to 30...")
+        max_framerate = 30
+
     tsp_instance_name = SETTINGS['TSP Instance']
     random_nodes = SETTINGS['Random Nodes']
     dimensions = SETTINGS['Dimensions']
+
+    start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
     num_nodes = SETTINGS['Num Nodes']
+    if num_nodes <= 3:
+        if start_node == end_node:
+            print(f"Invalid number of nodes given. Setting num_nodes to 4...")
+            num_nodes = 4
+        else:
+            print(f"Invalid number of nodes given. Setting num_nodes to 5...")
+            num_nodes = 5
+    if start_node < 0 or start_node > num_nodes-1:
+        print(f"Invalid start node given. Setting start_node to 0...")
+        start_node = 0
+    if end_node < 0 or end_node > num_nodes-1:
+        print(f"Invalid end node given. Setting end_node to 0...")
+        end_node = 0
+
     pop_size = SETTINGS['Population Size']
+    if pop_size <= 1:
+        print(f"Invalid population size given. Setting pop_size to 2...")
+        pop_size = 2
     max_gens = SETTINGS['Max Generations']
     elite_rate = SETTINGS['Elite Rate']
     cross_rate = SETTINGS['Crossover Rate']
     mutate_rate = SETTINGS['Mutation Rate']
-    start_node, end_node = SETTINGS['Start Node'], SETTINGS['End Node']
     fullscreen = SETTINGS['Fullscreen']
     opt_tour = None
 
@@ -77,25 +104,39 @@ def main():
 
     # If pre-defined TSP Instance. Must redefine nodes and coords lists.
     else:
-        print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
-        with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
-            lines = [line.rstrip() for line in tsp_instance_file]
+        if exists('TSP Instances/' + tsp_instance_name):
+            print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
+            with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
+                lines = [line.rstrip() for line in tsp_instance_file]
 
-        num_nodes, nodes, coords, dimensions = tsp.parse_instance(lines)
+            num_nodes, nodes, coords, dimensions = tsp.parse_instance(lines)
+        else:
+            print(f"File {tsp_instance_name} not found. Exiting...")
+            exit()
 
         # Load the optimum tour if there is one
         if exists('TSP Instances/' + tsp_instance_name + '.opt.tour'):
             with open('TSP Instances/' + tsp_instance_name + '.opt.tour') as opt_tour_file:
                 lines = [line.rstrip() for line in opt_tour_file]
+        else:
+            print(f"No optimum path given.")
 
-        opt_tour = tsp.parse_opt_tour(lines)
-        print(opt_tour)
+        if lines:
+            opt_tour = tsp.parse_opt_tour(lines)
 
     # Calculate the distance between each node
     print(f"Computing distances:")
     distances, elapsed2 = timed(tsp.compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
 
+    # Create Renderer object to display TSP instance and walks
+    if SETTINGS['Display']:
+        render_window = r.Renderer(display_dimensions, dimensions, coords, max_framerate, fullscreen=fullscreen,
+                                   start_ind=start_node, end_ind=end_node)
+
+    """
+    Start of Brute Force algorithm
+    """
     # Limit brute force to max of 12 nodes
     if num_nodes <= 12:
         # Create a BF object with the available nodes and distances
@@ -107,14 +148,15 @@ def main():
         # Iterate over all permutations and return the best one
         brute_f.brute_force_search(progress=True)
 
-        print(f"Best path: {brute_f.elite}\nLength: {brute_f.elite_length}")
+        if opt_tour is None:
+            opt_tour = brute_f.elite
+
+        print(f"Best path found with brute force: {brute_f.elite}\nLength: {brute_f.elite_length}")
         print()
 
-    # Create Renderer object to display TSP instance and walks
-    if SETTINGS['Display']:
-        render_window = r.Renderer(display_dimensions, dimensions, coords, max_framerate, fullscreen=fullscreen,
-                                   start_ind=start_node, end_ind=end_node)
-
+    """
+    Start of Genetic Algorithm
+    """
     # Create a GA object with specified params
     genetic_a = g.GA(num_nodes, pop_size, cross_rate, mutate_rate, distances, elite_rate, max_gens,
                      start_ind=start_node, end_ind=end_node)
@@ -122,7 +164,6 @@ def main():
     if opt_tour:
         opt_tour_ind = g.Individual(opt_tour, np.inf)
         genetic_a.evaluate_individual(opt_tour_ind, opt_tour=True)
-        print(f"Optimum Tour Fitness: {opt_tour_ind.fitness}")
 
     print(f"Starting Genetic Algorithm:")
     # Initialize Generation 0
@@ -164,6 +205,9 @@ def main():
         # Sort population once again for rendering the best path
         genetic_a.sort_population_by_fitness()
 
+        """
+        Algorithm visualization
+        """
         # Draw the best path so far, the optimum tour if there is one, pass info to renderer as text,
         # and check for pygame events
         if SETTINGS['Display']:
@@ -174,6 +218,9 @@ def main():
             render_window.draw_frame(genetic_a.best.genes, text, opt_tour)
             r.event_listen()
 
+    """
+    Start of data collection and visualization
+    """
     # Compile fitness data into matplot chart
     x = list(range(max_gens+1))
     y1 = genetic_a.avg_gen_fits
