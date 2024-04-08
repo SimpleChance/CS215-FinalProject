@@ -20,7 +20,7 @@ SETTINGS = {
     
     'Random Nodes': True,
     'Dimensions': (1000, 1000),
-    'Num Nodes': 75,
+    'Num Nodes': 8,
     'Start Node': 0,
     'End Node': 0,
 
@@ -105,9 +105,9 @@ def main():
         brute_f.generate_perms(progress=True)
 
         # Iterate over all permutations and return the best one
-        result = brute_f.brute_force_search(progress=True)
+        brute_f.brute_force_search(progress=True)
 
-        print(f"Best path: {result[0]}\nLength: {result[1]}")
+        print(f"Best path: {brute_f.elite}\nLength: {brute_f.elite_length}")
         print()
 
     # Create Renderer object to display TSP instance and walks

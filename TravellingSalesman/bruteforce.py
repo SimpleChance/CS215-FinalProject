@@ -32,6 +32,13 @@ class BF(object):
             path_length += self.distances[path[i]][path[i + 1]]
         return path_length
 
+    def update_elite(self, path, path_length):
+        if len(path) < 3:
+            return
+        if path_length < self.elite_length or self.elite is None:
+            self.elite = path
+            self.elite_length = path_length
+
     def generate_perms(self, nodes=None, progress=False):
         """
             Description: Generates all permutations of given nodes
@@ -69,7 +76,7 @@ class BF(object):
             Description: Performs a brute force search over all possible permutations.
             Args: None
             Returns: list[int], float
-            Time Complexity: O(n!) : n = num nodes
+            Time Complexity: O(n) : n = length of permutation array
         """
         n = len(self.perms)
 
@@ -82,10 +89,8 @@ class BF(object):
             perm = self.perms[i]
             perm.insert(0, self.start_ind)
             perm.append(self.end_ind)
-            path_length = self.calc_path_length(perm)
-            if path_length < self.elite_length or self.elite is None:
-                self.elite = perm
-                self.elite_length = path_length
+            perm_length = self.calc_path_length(perm)
+            self.update_elite(perm, perm_length)
             if progress:
                 progress_bar.update(1)
 
