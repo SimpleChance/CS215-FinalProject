@@ -14,17 +14,17 @@ import genetic as g
 
 SETTINGS = {
     'Display Dimensions': (750, 600),   # Display Resolution. Keep default for small window.
-    'Max_Framerate': -3,                # Maximum framerate the animation will play at.
+    'Max_Framerate': 30,                # Maximum framerate the animation will play at.
     'TSP Instance': 'att48',            # .tsp file name
     "Display": True,                    # Boolean to determine if the animation should play.
     
-    'Random Nodes': True,               # Determines if random nodes should be used. Keep true if no .tsp file is given.
+    'Random Nodes': False,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
     'Dimensions': (1000, 1000),         # Max and min coords for nodes.
-    'Num Nodes': 0,                    # Brute force will be disabled for node spaces larger than 12.
-    'Start Node': -1,                    # Index of start node.
-    'End Node': 5456,                      # Index of end node.
+    'Num Nodes': 50,                    # Brute force will be disabled for node spaces larger than 12.
+    'Start Node': 0,                    # Index of start node.
+    'End Node': 0,                      # Index of end node.
 
-    'Population Size': 0,             # Population size for the genetic algorithm.
+    'Population Size': 150,             # Population size for the genetic algorithm.
     'Max Generations': 1000,            # Maximum number of generations for the genetic algorithm.
     'Elite Rate': 0,                    # Determines how many individuals from the previous epoch will survive. (0-1)
     'Crossover Rate': 1,                # Determines how many individuals will reproduce. (0-1)
@@ -104,7 +104,7 @@ def main():
 
     # If pre-defined TSP Instance. Must redefine nodes and coords lists.
     else:
-        if exists('TSP Instances/' + tsp_instance_name):
+        if exists('TSP Instances/' + tsp_instance_name + '.tsp'):
             print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
             with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
                 lines = [line.rstrip() for line in tsp_instance_file]
@@ -128,11 +128,6 @@ def main():
     print(f"Computing distances:")
     distances, elapsed2 = timed(tsp.compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
-
-    # Create Renderer object to display TSP instance and walks
-    if SETTINGS['Display']:
-        render_window = r.Renderer(display_dimensions, dimensions, coords, max_framerate, fullscreen=fullscreen,
-                                   start_ind=start_node, end_ind=end_node)
 
     """
     Start of Brute Force algorithm
@@ -164,6 +159,11 @@ def main():
     if opt_tour:
         opt_tour_ind = g.Individual(opt_tour, np.inf)
         genetic_a.evaluate_individual(opt_tour_ind, opt_tour=True)
+
+    # Create Renderer object to display TSP instance and walks
+    if SETTINGS['Display']:
+        render_window = r.Renderer(display_dimensions, dimensions, coords, max_framerate, fullscreen=fullscreen,
+                                   start_ind=start_node, end_ind=end_node)
 
     print(f"Starting Genetic Algorithm:")
     # Initialize Generation 0
