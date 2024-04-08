@@ -18,9 +18,9 @@ SETTINGS = {
     'TSP Instance': 'att48',            # .tsp file name
     "Display": True,                    # Boolean to determine if the animation should play.
     
-    'Random Nodes': False,               # Determines if random nodes should be used. Keep true if no .tsp file is given.
+    'Random Nodes': False,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
     'Dimensions': (1000, 1000),         # Max and min coords for nodes.
-    'Num Nodes': 11,                   # Brute force will be disabled for node spaces larger than 12.
+    'Num Nodes': 11,                    # Brute force will be disabled for node spaces larger than 12.
     'Start Node': 0,                    # Index of start node.
     'End Node': 0,                      # Index of end node.
 
