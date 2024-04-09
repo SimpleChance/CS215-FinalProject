@@ -1,6 +1,6 @@
 Chance Jewell, Cade Parlato, Jacob Gibson
 
-This repository contains all files associated with our CS215 Final Project - Analysis of Brute Force, Divide and Conquer, and Genetic Algorithms for Solving TSP.
+This repository contains all files associated with our CS215 Final Project - Analysis of Brute Force and Genetic Algorithms for Solving TSP.
 
 The time-complexity for each algorithm can be determined as follows:
 - Brute Force:
@@ -19,6 +19,7 @@ The time-complexity for each algorithm can be determined as follows:
 
 Class files, test files, and the main script for the TSP demo are under the Travelling Salesman folder.
 Matplotlib figures from the test scripts are saved in the Test Results folder.
+
 .opt.tsp and .tsp instance files are saved in the TSP Instances folder.
 
 - tsp.py contains parsing and precompute methods for tsp instances ~ dependencies: numpy
@@ -26,6 +27,7 @@ Matplotlib figures from the test scripts are saved in the Test Results folder.
 - genetic.py contains the GA class and associated methods ~ dependencies: numpy and dataclasses
 - render.py contains the Renderer class and associated methods ~ dependencies: pygame and sys
 - main.py contains the entry point for the demo as well as data collection and analysis ~ dependencies: tdqm, numpy, time, matplotlib
+- test1_bruteforce.py and test\[1-3]_genetic.py are scripts used to gather time complexity data for each algorithm.
 
 main.py is where BF and GA objects are created, tracked, and analyzed. As well as where the node list and distances are precomputed.
 
@@ -37,14 +39,8 @@ test2_genetic.py is a script to collect time data for our genetic algorithm base
 
 test3_genetic.py is a script to collect time data for our genetic algorithm based on variable maximum generations.
 
-To install packages, cd into ...\CS215-FinalProject and paste the following into the terminal:
-- pip install numpy
-- pip install matplotlib
-- pip install pygame
-- pip install tqdm
+To install packages, cd into ...\CS215-FinalProject\TravellingSalesman and paste the following into the terminal:
+- pip install -r requirements.txt
 
-To run the main demo, cd into ...\CS215-FinalProject\'Travelling Salesman' and paste the following into the terminal:
+To run the main demo, cd into ...\CS215-FinalProject\TravellingSalesman and paste the following into the terminal:
 - ./main.py
-
-TODO:
-  - Divide and Conquer class file
