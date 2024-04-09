@@ -179,14 +179,10 @@ def main():
     genetic_a.find_avg_fit()
     genetic_a.find_gen_best_fit()
 
-    # Use tqdm to track overall completion
     gen = -1
+    # Use tqdm to track overall completion
     for _ in tqdm(range(max_gens)):
         gen += 1
-
-        # Calculate Parent probabilities
-        genetic_a.find_parent_probabilities()
-
         # Select parents and perform crossover
         offspring = genetic_a.generate_offspring()
 
