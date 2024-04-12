@@ -11,7 +11,7 @@ import bruteforce as bf
 
 SETTINGS = {
     'Batch Size': 100,
-    'Max Num Nodes': 10,
+    'Max Num Nodes': 11,
     'Dimensions': (500, 500),
     'Start Node': 0,
     'End Node': 0
@@ -44,8 +44,8 @@ def main():
 
             brute_f = bf.BF(nodes, distance_matrix, start_node, end_node)
 
-            perms = brute_f.generate_perms()
-            best, best_length = brute_f.brute_force_search()
+            brute_f.generate_perms()
+            brute_f.brute_force_search()
 
             t2 = time.perf_counter()
             elapsed = t2 - t1

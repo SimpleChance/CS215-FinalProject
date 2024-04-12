@@ -10,7 +10,7 @@ import genetic as g
 
 
 SETTINGS = {
-    'Batch Size': 25,
+    'Batch Size': 100,
 
     'Max Num Nodes': 250,
     'Dimensions': (500, 500),
@@ -96,12 +96,6 @@ def main():
     for i in range(batch_size):
         plt.plot(data_x, data_y[i])
 
-    plt.title(f"Time to Perform Genetic Algorithm on N Nodes | Pop: {population} | Gens: {max_gens} | "
-              f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate}")
-    plt.xlabel("Num Nodes")
-    plt.ylabel("Time (s)")
-    plt.show()
-
     avg_elapsed = []
     for i in range(len(data_x)):
         tmp = 0
@@ -111,11 +105,10 @@ def main():
         avg_elapsed.append(tmp)
     x = np.array(data_x)
     y = np.array(avg_elapsed)
-    a, b = np.polyfit(x, y, 1)
+    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0))
 
-    plt.scatter(x, y, label='Average time elapsed')
-    plt.plot(x, a*x+b, color=(0, 0, 0), label='Linear Fit')
-    plt.title(f"Average Time to Perform Genetic Algorithm on N Nodes | Batch Size: {batch_size}")
+    plt.title(f"Time to Perform Genetic Algorithm on N Nodes | Pop: {population} | Gens: {max_gens} |\n| "
+              f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate} | Batch Size: {batch_size}")
     plt.xlabel("Num Nodes")
     plt.ylabel("Time (s)")
     plt.legend(loc='upper left')

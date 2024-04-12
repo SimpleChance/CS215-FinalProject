@@ -10,14 +10,14 @@ import genetic as g
 
 
 SETTINGS = {
-    'Batch Size': 50,
+    'Batch Size': 100,
 
     'Num Nodes': 25,
     'Dimensions': (500, 500),
     'Start Node': 0,
     'End Node': 0,
 
-    'Population': 10,
+    'Population': 25,
     'Max Generations': 250,
     'Elite Rate': 0,
     'Crossover Rate': 1,
@@ -95,12 +95,6 @@ def main():
     for i in range(batch_size):
         plt.plot(data_x, data_y[i])
 
-    plt.title(f"Time to Perform Genetic Algorithm with Max Generations N | Num Nodes: {num_nodes} | Pop: {population} | "
-              f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate}")
-    plt.xlabel("Max Generations n")
-    plt.ylabel("Time (s)")
-    plt.show()
-
     avg_elapsed = []
     for i in range(len(data_x)):
         tmp = 0
@@ -110,10 +104,10 @@ def main():
         avg_elapsed.append(tmp)
     x = np.array(data_x)
     y = np.array(avg_elapsed)
-    a, b = np.polyfit(x*np.log(x), y, 1)
+    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0))
 
-    plt.scatter(x, y, label='Average time elapsed: linear fit')
-    plt.title(f"Average Time to Perform Genetic Algorithm with Max Gens N | Batch Size: {batch_size}")
+    plt.title(f"Time to Perform Genetic Algorithm with Max Generations N | Num Nodes: {num_nodes} | Pop: {population} |\n| "
+              f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate} | Batch Size: {batch_size}")
     plt.xlabel("Max Generations n")
     plt.ylabel("Time (s)")
     plt.legend(loc='upper left')
