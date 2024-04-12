@@ -18,13 +18,13 @@ SETTINGS = {
     'TSP Instance': 'att48',            # .tsp file name
     "Display": True,                    # Boolean to determine if the animation should play.
     
-    'Random Nodes': False,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
+    'Random Nodes': True,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
     'Dimensions': (1000, 1000),         # Max and min coords for nodes.
-    'Num Nodes': 11,                    # Brute force will be disabled for node spaces larger than 12.
+    'Num Nodes': 100,                    # Brute force will be disabled for node spaces larger than 12.
     'Start Node': 0,                    # Index of start node.
     'End Node': 0,                      # Index of end node.
 
-    'Population Size': 150,             # Population size for the genetic algorithm.
+    'Population Size': 250,             # Population size for the genetic algorithm.
     'Max Generations': 1000,            # Maximum number of generations for the genetic algorithm.
     'Elite Rate': 0,                    # Determines how many individuals from the previous epoch will survive. (0-1)
     'Crossover Rate': 1,                # Determines how many individuals will reproduce. (0-1)
@@ -166,6 +166,7 @@ def main():
                                    start_ind=start_node, end_ind=end_node)
 
     print(f"Starting Genetic Algorithm:")
+
     # Initialize Generation 0
     genetic_a.initialize_population()
 

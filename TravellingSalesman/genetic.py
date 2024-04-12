@@ -375,7 +375,7 @@ class GA(object):
 
     def generate_offspring(self):
         """
-            Description: Generates a batch of offspring based on parent probabilities and the cross over rate.
+            Description: Generates a batch of offspring based on parent probabilities and the crossover rate.
             Args: None
             Returns: list[Individual]
             Time Complexity: O(n*m) : n = length of parent genes (num nodes)
