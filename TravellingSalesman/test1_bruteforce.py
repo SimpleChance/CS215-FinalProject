@@ -54,6 +54,7 @@ def main():
 
         progress_bar.update(1)
 
+    # Find average elapsed for all batches
     avg_elapsed = []
     for i in range(len(data_x)):
         tmp = 0
@@ -64,6 +65,20 @@ def main():
     x = np.array(data_x)
     y = np.array(avg_elapsed)
 
+    # Output data to .txt file
+    with open('Test Results/bf_data.txt', 'w') as f:
+        f.write('Brute Force test with variable # of nodes, N\n')
+        f.write(f'Batch size: {batch_size}\n')
+        f.write('\n')
+        for i in range(batch_size):
+            f.write(f'\nBatch {i}: \n')
+            for j in range(len(x)):
+                f.write(f'# nodes: {x[j]}, Time elapsed: {data_y[i][j]} s \n')
+        f.write(f'\nAverage time elapsed between all batches for # nodes, N: \n')
+        for i in range(len(x)):
+            f.write(f'# nodes: {x[i]}, Average time elapsed: {y[i]} s\n')
+
+    # Plot data
     for i in range(batch_size):
         plt.plot(x, data_y[i])
     plt.scatter(x, y, color=(0, 0, 0), label='Average time elapsed')

@@ -92,9 +92,7 @@ def main():
             data_y[i].append(elapsed)
         progress_bar1.update(1)
 
-    for i in range(batch_size):
-        plt.plot(data_x, data_y[i])
-
+    # Find average time elapsed between all batches
     avg_elapsed = []
     for i in range(len(data_x)):
         tmp = 0
@@ -104,8 +102,24 @@ def main():
         avg_elapsed.append(tmp)
     x = np.array(data_x)
     y = np.array(avg_elapsed)
-    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0))
 
+    # Output data to .txt file
+    with open('Test Results/genetic3_data.txt', 'w') as f:
+        f.write(f'Genetic test with variable maximum # of generations: Max generations = {max_gens}\n')
+        f.write(f'Batch size: {batch_size}\n')
+        f.write('\n')
+        for i in range(batch_size):
+            f.write(f'\nBatch {i}: \n')
+            for j in range(len(x)):
+                f.write(f'Generations: {x[j]}, Time elapsed: {data_y[i][j]} s \n')
+        f.write(f'\nAverage time elapsed between all batches: \n')
+        for i in range(len(x)):
+            f.write(f'Generations: {x[i]}, Average time elapsed: {y[i]} s\n')
+
+    # Plot data
+    for i in range(batch_size):
+        plt.plot(data_x, data_y[i])
+    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0))
     plt.title(f"Time to Perform Genetic Algorithm with Max Generations N | Num Nodes: {num_nodes} | Pop: {population} |\n| "
               f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate} | Batch Size: {batch_size}")
     plt.xlabel("Max Generations n")
