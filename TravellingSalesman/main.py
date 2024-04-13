@@ -225,8 +225,9 @@ def main():
     plt.xlabel("Generation n")
     plt.ylabel("Average Fitness")
     plt.title(f"Nodes: {num_nodes} | Pop: {pop_size} | Elite: {elite_rate} | Cross: {cross_rate} | Mut: {mutate_rate}")
-    plt.plot(x, y1)
-    plt.plot(x, y2)
+    plt.plot(x, y1, label='Average fitness')
+    plt.plot(x, y2, label='Best fitness')
+    plt.legend(loc='upper right')
     plt.show()
 
     print(f"Gen 0 Best: {genetic_a.generations[0][0].fitness}")
