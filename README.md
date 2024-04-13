@@ -39,6 +39,8 @@ test2_genetic.py is a script to collect time data for our genetic algorithm base
 
 test3_genetic.py is a script to collect time data for our genetic algorithm based on variable maximum generations.
 
+***Warning: All test scripts take >20 minutes to complete with default settings***
+
 To install packages, cd into ...\CS215-FinalProject\TravellingSalesman and paste the following into the terminal:
 - pip install -r requirements.txt
 
