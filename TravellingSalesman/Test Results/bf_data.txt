@@ -1,0 +1,1013 @@
+Brute Force test with variable # of nodes, N
+Batch size: 100
+
+
+Batch 0: 
+# nodes: 4, Time elapsed: 7.999999797903001e-05 s 
+# nodes: 5, Time elapsed: 7.79999973019585e-05 s 
+# nodes: 6, Time elapsed: 0.0002310999989276752 s 
+# nodes: 7, Time elapsed: 0.0012523000041255727 s 
+# nodes: 8, Time elapsed: 0.009529599992674775 s 
+# nodes: 9, Time elapsed: 0.08080189999600407 s 
+# nodes: 10, Time elapsed: 0.7934986000036588 s 
+# nodes: 11, Time elapsed: 8.952961799994227 s 
+
+Batch 1: 
+# nodes: 4, Time elapsed: 0.0918697000015527 s 
+# nodes: 5, Time elapsed: 0.00010619999375194311 s 
+# nodes: 6, Time elapsed: 0.00022850000823382288 s 
+# nodes: 7, Time elapsed: 0.004030200012493879 s 
+# nodes: 8, Time elapsed: 0.008558500005165115 s 
+# nodes: 9, Time elapsed: 0.07661659999575932 s 
+# nodes: 10, Time elapsed: 0.7391426999965915 s 
+# nodes: 11, Time elapsed: 8.92228719999548 s 
+
+Batch 2: 
+# nodes: 4, Time elapsed: 0.09197870000207331 s 
+# nodes: 5, Time elapsed: 0.00015389999316539615 s 
+# nodes: 6, Time elapsed: 0.00023650001094210893 s 
+# nodes: 7, Time elapsed: 0.0012570000108098611 s 
+# nodes: 8, Time elapsed: 0.00896449999709148 s 
+# nodes: 9, Time elapsed: 0.07495989999733865 s 
+# nodes: 10, Time elapsed: 0.7971392000035848 s 
+# nodes: 11, Time elapsed: 8.929756000012276 s 
+
+Batch 3: 
+# nodes: 4, Time elapsed: 0.10561430000234395 s 
+# nodes: 5, Time elapsed: 0.0001179000100819394 s 
+# nodes: 6, Time elapsed: 0.0002361999941058457 s 
+# nodes: 7, Time elapsed: 0.0014634999970439821 s 
+# nodes: 8, Time elapsed: 0.008702299994183704 s 
+# nodes: 9, Time elapsed: 0.0757791000069119 s 
+# nodes: 10, Time elapsed: 0.7442150999995647 s 
+# nodes: 11, Time elapsed: 8.856216200001654 s 
+
+Batch 4: 
+# nodes: 4, Time elapsed: 0.10327239999605808 s 
+# nodes: 5, Time elapsed: 0.00016029999824240804 s 
+# nodes: 6, Time elapsed: 0.00023740000324323773 s 
+# nodes: 7, Time elapsed: 0.0014039999950909987 s 
+# nodes: 8, Time elapsed: 0.008738100004848093 s 
+# nodes: 9, Time elapsed: 0.07486699998844415 s 
+# nodes: 10, Time elapsed: 0.7282802999980049 s 
+# nodes: 11, Time elapsed: 8.835320999991382 s 
+
+Batch 5: 
+# nodes: 4, Time elapsed: 0.10178250000171829 s 
+# nodes: 5, Time elapsed: 0.00010779999138321728 s 
+# nodes: 6, Time elapsed: 0.0002294000005349517 s 
+# nodes: 7, Time elapsed: 0.0013953000016044825 s 
+# nodes: 8, Time elapsed: 0.008837100001983345 s 
+# nodes: 9, Time elapsed: 0.07475250000425149 s 
+# nodes: 10, Time elapsed: 0.7753983000002336 s 
+# nodes: 11, Time elapsed: 8.915674000003492 s 
+
+Batch 6: 
+# nodes: 4, Time elapsed: 0.10514349999721162 s 
+# nodes: 5, Time elapsed: 0.000119399992399849 s 
+# nodes: 6, Time elapsed: 0.00023200000578071922 s 
+# nodes: 7, Time elapsed: 0.0016088999982457608 s 
+# nodes: 8, Time elapsed: 0.008687599998665974 s 
+# nodes: 9, Time elapsed: 0.07546429999638349 s 
+# nodes: 10, Time elapsed: 0.7303298999904655 s 
+# nodes: 11, Time elapsed: 8.882976099994266 s 
+
+Batch 7: 
+# nodes: 4, Time elapsed: 0.10146660001191776 s 
+# nodes: 5, Time elapsed: 0.00012009999772999436 s 
+# nodes: 6, Time elapsed: 0.00022839999292045832 s 
+# nodes: 7, Time elapsed: 0.0012495999981183559 s 
+# nodes: 8, Time elapsed: 0.008722800004761666 s 
+# nodes: 9, Time elapsed: 0.07516009999380913 s 
+# nodes: 10, Time elapsed: 0.7623962999932701 s 
+# nodes: 11, Time elapsed: 8.908184300002176 s 
+
+Batch 8: 
+# nodes: 4, Time elapsed: 0.10148630000185221 s 
+# nodes: 5, Time elapsed: 0.00011759999324567616 s 
+# nodes: 6, Time elapsed: 0.00023150000197347254 s 
+# nodes: 7, Time elapsed: 0.0014643000031355768 s 
+# nodes: 8, Time elapsed: 0.00877549999859184 s 
+# nodes: 9, Time elapsed: 0.07573640000191517 s 
+# nodes: 10, Time elapsed: 0.7306912000058219 s 
+# nodes: 11, Time elapsed: 8.894997600000352 s 
+
+Batch 9: 
+# nodes: 4, Time elapsed: 0.10832499999378342 s 
+# nodes: 5, Time elapsed: 0.00011280000035185367 s 
+# nodes: 6, Time elapsed: 0.00023320000036619604 s 
+# nodes: 7, Time elapsed: 0.0014079000102356076 s 
+# nodes: 8, Time elapsed: 0.008609099997556768 s 
+# nodes: 9, Time elapsed: 0.07504519999201875 s 
+# nodes: 10, Time elapsed: 0.7272426999988966 s 
+# nodes: 11, Time elapsed: 8.992730699988897 s 
+
+Batch 10: 
+# nodes: 4, Time elapsed: 0.10630179999861866 s 
+# nodes: 5, Time elapsed: 0.00011330000415910035 s 
+# nodes: 6, Time elapsed: 0.00023499999952036887 s 
+# nodes: 7, Time elapsed: 0.0013555999903474003 s 
+# nodes: 8, Time elapsed: 0.008753700007218868 s 
+# nodes: 9, Time elapsed: 0.07517749999533407 s 
+# nodes: 10, Time elapsed: 0.7482507999957306 s 
+# nodes: 11, Time elapsed: 8.92328780000389 s 
+
+Batch 11: 
+# nodes: 4, Time elapsed: 0.10466319999250118 s 
+# nodes: 5, Time elapsed: 0.00011239999730605632 s 
+# nodes: 6, Time elapsed: 0.0002314000012120232 s 
+# nodes: 7, Time elapsed: 0.0012861000141128898 s 
+# nodes: 8, Time elapsed: 0.00899550000031013 s 
+# nodes: 9, Time elapsed: 0.07657099999778438 s 
+# nodes: 10, Time elapsed: 0.7454969000100391 s 
+# nodes: 11, Time elapsed: 8.942623000009917 s 
+
+Batch 12: 
+# nodes: 4, Time elapsed: 0.1046628000040073 s 
+# nodes: 5, Time elapsed: 0.00012029999925289303 s 
+# nodes: 6, Time elapsed: 0.00022960000205785036 s 
+# nodes: 7, Time elapsed: 0.0013696999958483502 s 
+# nodes: 8, Time elapsed: 0.008621799992397428 s 
+# nodes: 9, Time elapsed: 0.07599009999830741 s 
+# nodes: 10, Time elapsed: 0.7392456000088714 s 
+# nodes: 11, Time elapsed: 8.8471669999999 s 
+
+Batch 13: 
+# nodes: 4, Time elapsed: 0.10831619999953546 s 
+# nodes: 5, Time elapsed: 0.0001142999972216785 s 
+# nodes: 6, Time elapsed: 0.00022820000594947487 s 
+# nodes: 7, Time elapsed: 0.0013017999881412834 s 
+# nodes: 8, Time elapsed: 0.008825500000966713 s 
+# nodes: 9, Time elapsed: 0.07565650000469759 s 
+# nodes: 10, Time elapsed: 0.7683583999896655 s 
+# nodes: 11, Time elapsed: 8.897626299993135 s 
+
+Batch 14: 
+# nodes: 4, Time elapsed: 0.10677430000214372 s 
+# nodes: 5, Time elapsed: 0.00011320000339765102 s 
+# nodes: 6, Time elapsed: 0.00022669999452773482 s 
+# nodes: 7, Time elapsed: 0.0013618999946629629 s 
+# nodes: 8, Time elapsed: 0.008756499999435619 s 
+# nodes: 9, Time elapsed: 0.07636930000444409 s 
+# nodes: 10, Time elapsed: 0.7319610999984434 s 
+# nodes: 11, Time elapsed: 9.00178120000055 s 
+
+Batch 15: 
+# nodes: 4, Time elapsed: 0.0939512999902945 s 
+# nodes: 5, Time elapsed: 0.00011820001236628741 s 
+# nodes: 6, Time elapsed: 0.0002305999951204285 s 
+# nodes: 7, Time elapsed: 0.0019632999901659787 s 
+# nodes: 8, Time elapsed: 0.008765600010519847 s 
+# nodes: 9, Time elapsed: 0.0749433000019053 s 
+# nodes: 10, Time elapsed: 0.7317500000062864 s 
+# nodes: 11, Time elapsed: 8.87504159999662 s 
+
+Batch 16: 
+# nodes: 4, Time elapsed: 0.10218059999169782 s 
+# nodes: 5, Time elapsed: 0.00010540000221226364 s 
+# nodes: 6, Time elapsed: 0.00022499999613501132 s 
+# nodes: 7, Time elapsed: 0.001566199993249029 s 
+# nodes: 8, Time elapsed: 0.008754299997235648 s 
+# nodes: 9, Time elapsed: 0.07524450001074001 s 
+# nodes: 10, Time elapsed: 0.7537131999997655 s 
+# nodes: 11, Time elapsed: 8.900729500004672 s 
+
+Batch 17: 
+# nodes: 4, Time elapsed: 0.10349310000310652 s 
+# nodes: 5, Time elapsed: 0.00010080001084133983 s 
+# nodes: 6, Time elapsed: 0.00022429999080486596 s 
+# nodes: 7, Time elapsed: 0.001444099994841963 s 
+# nodes: 8, Time elapsed: 0.014326800010167062 s 
+# nodes: 9, Time elapsed: 0.07648519999929704 s 
+# nodes: 10, Time elapsed: 0.7484726999973645 s 
+# nodes: 11, Time elapsed: 8.836138200000278 s 
+
+Batch 18: 
+# nodes: 4, Time elapsed: 0.10220619999745395 s 
+# nodes: 5, Time elapsed: 0.00011660000018309802 s 
+# nodes: 6, Time elapsed: 0.00023150000197347254 s 
+# nodes: 7, Time elapsed: 0.0014194999967003241 s 
+# nodes: 8, Time elapsed: 0.00881699999445118 s 
+# nodes: 9, Time elapsed: 0.07494170000427403 s 
+# nodes: 10, Time elapsed: 0.761959499999648 s 
+# nodes: 11, Time elapsed: 8.882536200006143 s 
+
+Batch 19: 
+# nodes: 4, Time elapsed: 0.10896139999385923 s 
+# nodes: 5, Time elapsed: 0.00010489999840501696 s 
+# nodes: 6, Time elapsed: 0.00023599999258294702 s 
+# nodes: 7, Time elapsed: 0.0014767999964533374 s 
+# nodes: 8, Time elapsed: 0.008977600009529851 s 
+# nodes: 9, Time elapsed: 0.0755498000071384 s 
+# nodes: 10, Time elapsed: 0.8043516000034288 s 
+# nodes: 11, Time elapsed: 8.961922300004517 s 
+
+Batch 20: 
+# nodes: 4, Time elapsed: 0.1047203000052832 s 
+# nodes: 5, Time elapsed: 0.00010189999011345208 s 
+# nodes: 6, Time elapsed: 0.00023289999808184803 s 
+# nodes: 7, Time elapsed: 0.0016956000035861507 s 
+# nodes: 8, Time elapsed: 0.008946300004026853 s 
+# nodes: 9, Time elapsed: 0.07504590001190081 s 
+# nodes: 10, Time elapsed: 0.7389121000014711 s 
+# nodes: 11, Time elapsed: 8.955493300003582 s 
+
+Batch 21: 
+# nodes: 4, Time elapsed: 0.10603700000501703 s 
+# nodes: 5, Time elapsed: 0.00010050000855699182 s 
+# nodes: 6, Time elapsed: 0.00022929999977350235 s 
+# nodes: 7, Time elapsed: 0.001534800001536496 s 
+# nodes: 8, Time elapsed: 0.008836099994368851 s 
+# nodes: 9, Time elapsed: 0.07507900000200607 s 
+# nodes: 10, Time elapsed: 0.7390108000108739 s 
+# nodes: 11, Time elapsed: 8.886215399994398 s 
+
+Batch 22: 
+# nodes: 4, Time elapsed: 0.10518440000305418 s 
+# nodes: 5, Time elapsed: 0.00011280000035185367 s 
+# nodes: 6, Time elapsed: 0.00023770000552758574 s 
+# nodes: 7, Time elapsed: 0.0012807999883079901 s 
+# nodes: 8, Time elapsed: 0.00892010000825394 s 
+# nodes: 9, Time elapsed: 0.07500729999446776 s 
+# nodes: 10, Time elapsed: 0.7465380999929039 s 
+# nodes: 11, Time elapsed: 9.003291499990155 s 
+
+Batch 23: 
+# nodes: 4, Time elapsed: 0.10371119999035727 s 
+# nodes: 5, Time elapsed: 0.00010509999992791563 s 
+# nodes: 6, Time elapsed: 0.00023540000256616622 s 
+# nodes: 7, Time elapsed: 0.001531100002466701 s 
+# nodes: 8, Time elapsed: 0.008923300003516488 s 
+# nodes: 9, Time elapsed: 0.07502119999844581 s 
+# nodes: 10, Time elapsed: 0.7337002999993274 s 
+# nodes: 11, Time elapsed: 8.94607520000136 s 
+
+Batch 24: 
+# nodes: 4, Time elapsed: 0.10688940000545699 s 
+# nodes: 5, Time elapsed: 0.00011439999798312783 s 
+# nodes: 6, Time elapsed: 0.00022960000205785036 s 
+# nodes: 7, Time elapsed: 0.0015475000109290704 s 
+# nodes: 8, Time elapsed: 0.00902079998923 s 
+# nodes: 9, Time elapsed: 0.07567950000520796 s 
+# nodes: 10, Time elapsed: 0.727225599999656 s 
+# nodes: 11, Time elapsed: 8.905814300000202 s 
+
+Batch 25: 
+# nodes: 4, Time elapsed: 0.10571620000700932 s 
+# nodes: 5, Time elapsed: 0.00011750000703614205 s 
+# nodes: 6, Time elapsed: 0.00023020000662654638 s 
+# nodes: 7, Time elapsed: 0.0014799999917158857 s 
+# nodes: 8, Time elapsed: 0.008924800000386313 s 
+# nodes: 9, Time elapsed: 0.07536729999992531 s 
+# nodes: 10, Time elapsed: 0.7334942000015872 s 
+# nodes: 11, Time elapsed: 8.96563760000572 s 
+
+Batch 26: 
+# nodes: 4, Time elapsed: 0.10262809999403544 s 
+# nodes: 5, Time elapsed: 0.00011700000322889537 s 
+# nodes: 6, Time elapsed: 0.00023100001271814108 s 
+# nodes: 7, Time elapsed: 0.0015679999924032018 s 
+# nodes: 8, Time elapsed: 0.008912899997085333 s 
+# nodes: 9, Time elapsed: 0.07504100000369363 s 
+# nodes: 10, Time elapsed: 0.732305900004576 s 
+# nodes: 11, Time elapsed: 8.794229699997231 s 
+
+Batch 27: 
+# nodes: 4, Time elapsed: 0.10762749999412335 s 
+# nodes: 5, Time elapsed: 0.00010699999984353781 s 
+# nodes: 6, Time elapsed: 0.0002300000051036477 s 
+# nodes: 7, Time elapsed: 0.0013470999983837828 s 
+# nodes: 8, Time elapsed: 0.008828699996229261 s 
+# nodes: 9, Time elapsed: 0.07536509999772534 s 
+# nodes: 10, Time elapsed: 0.7852150999970036 s 
+# nodes: 11, Time elapsed: 8.879033200006234 s 
+
+Batch 28: 
+# nodes: 4, Time elapsed: 0.10579499999585096 s 
+# nodes: 5, Time elapsed: 0.00010659999679774046 s 
+# nodes: 6, Time elapsed: 0.00022669999452773482 s 
+# nodes: 7, Time elapsed: 0.0014555999950971454 s 
+# nodes: 8, Time elapsed: 0.008870799996657297 s 
+# nodes: 9, Time elapsed: 0.07498340000165626 s 
+# nodes: 10, Time elapsed: 0.7600412000028882 s 
+# nodes: 11, Time elapsed: 8.835219800006598 s 
+
+Batch 29: 
+# nodes: 4, Time elapsed: 0.10437939999974333 s 
+# nodes: 5, Time elapsed: 0.00010720000136643648 s 
+# nodes: 6, Time elapsed: 0.00023579999106004834 s 
+# nodes: 7, Time elapsed: 0.0013806000060867518 s 
+# nodes: 8, Time elapsed: 0.00898879999294877 s 
+# nodes: 9, Time elapsed: 0.07507900000200607 s 
+# nodes: 10, Time elapsed: 0.7878389999968931 s 
+# nodes: 11, Time elapsed: 8.79546670000127 s 
+
+Batch 30: 
+# nodes: 4, Time elapsed: 0.1059737000032328 s 
+# nodes: 5, Time elapsed: 0.00014600000577047467 s 
+# nodes: 6, Time elapsed: 0.0002459999959683046 s 
+# nodes: 7, Time elapsed: 0.0014372000005096197 s 
+# nodes: 8, Time elapsed: 0.009100899987970479 s 
+# nodes: 9, Time elapsed: 0.10188930000003893 s 
+# nodes: 10, Time elapsed: 0.773079599995981 s 
+# nodes: 11, Time elapsed: 8.896466699996381 s 
+
+Batch 31: 
+# nodes: 4, Time elapsed: 0.10185670001374092 s 
+# nodes: 5, Time elapsed: 0.00010599999222904444 s 
+# nodes: 6, Time elapsed: 0.0002325000095879659 s 
+# nodes: 7, Time elapsed: 0.0014308999961940572 s 
+# nodes: 8, Time elapsed: 0.008997900004033 s 
+# nodes: 9, Time elapsed: 0.07534910000686068 s 
+# nodes: 10, Time elapsed: 0.7660396999999648 s 
+# nodes: 11, Time elapsed: 8.933470000003581 s 
+
+Batch 32: 
+# nodes: 4, Time elapsed: 0.10294900000735652 s 
+# nodes: 5, Time elapsed: 0.0001053000014508143 s 
+# nodes: 6, Time elapsed: 0.00023230000806506723 s 
+# nodes: 7, Time elapsed: 0.001425900001777336 s 
+# nodes: 8, Time elapsed: 0.00915250000252854 s 
+# nodes: 9, Time elapsed: 0.07542900000407826 s 
+# nodes: 10, Time elapsed: 0.757677200002945 s 
+# nodes: 11, Time elapsed: 9.02981870000076 s 
+
+Batch 33: 
+# nodes: 4, Time elapsed: 0.10221860000456218 s 
+# nodes: 5, Time elapsed: 0.00010509999992791563 s 
+# nodes: 6, Time elapsed: 0.00023010000586509705 s 
+# nodes: 7, Time elapsed: 0.0014639000000897795 s 
+# nodes: 8, Time elapsed: 0.008955900004366413 s 
+# nodes: 9, Time elapsed: 0.07514050000463612 s 
+# nodes: 10, Time elapsed: 0.7473108999984106 s 
+# nodes: 11, Time elapsed: 8.923446200002218 s 
+
+Batch 34: 
+# nodes: 4, Time elapsed: 0.10476960000232793 s 
+# nodes: 5, Time elapsed: 9.830000635702163e-05 s 
+# nodes: 6, Time elapsed: 0.00022599998919758946 s 
+# nodes: 7, Time elapsed: 0.001474500008043833 s 
+# nodes: 8, Time elapsed: 0.00908740000159014 s 
+# nodes: 9, Time elapsed: 0.07496620000165422 s 
+# nodes: 10, Time elapsed: 0.7425451000017347 s 
+# nodes: 11, Time elapsed: 8.948683099995833 s 
+
+Batch 35: 
+# nodes: 4, Time elapsed: 0.10403190000215545 s 
+# nodes: 5, Time elapsed: 0.00010970000585075468 s 
+# nodes: 6, Time elapsed: 0.00023859999782871455 s 
+# nodes: 7, Time elapsed: 0.0013709999911952764 s 
+# nodes: 8, Time elapsed: 0.009237500009476207 s 
+# nodes: 9, Time elapsed: 0.07479389999934938 s 
+# nodes: 10, Time elapsed: 0.7455781000026036 s 
+# nodes: 11, Time elapsed: 8.911407399995369 s 
+
+Batch 36: 
+# nodes: 4, Time elapsed: 0.09725279999838676 s 
+# nodes: 5, Time elapsed: 0.00011660000018309802 s 
+# nodes: 6, Time elapsed: 0.00023259999579750001 s 
+# nodes: 7, Time elapsed: 0.0013535000034607947 s 
+# nodes: 8, Time elapsed: 0.008879400003934279 s 
+# nodes: 9, Time elapsed: 0.0750597000005655 s 
+# nodes: 10, Time elapsed: 0.7354336999997031 s 
+# nodes: 11, Time elapsed: 8.930376900010742 s 
+
+Batch 37: 
+# nodes: 4, Time elapsed: 0.10262769999098964 s 
+# nodes: 5, Time elapsed: 9.839999256655574e-05 s 
+# nodes: 6, Time elapsed: 0.00022929999977350235 s 
+# nodes: 7, Time elapsed: 0.001254800008609891 s 
+# nodes: 8, Time elapsed: 0.009021799996844493 s 
+# nodes: 9, Time elapsed: 0.07471559999976307 s 
+# nodes: 10, Time elapsed: 0.7306184000044595 s 
+# nodes: 11, Time elapsed: 8.78670240000065 s 
+
+Batch 38: 
+# nodes: 4, Time elapsed: 0.09912899999471847 s 
+# nodes: 5, Time elapsed: 0.00011789999553002417 s 
+# nodes: 6, Time elapsed: 0.00023049999435897917 s 
+# nodes: 7, Time elapsed: 0.0014727000088896602 s 
+# nodes: 8, Time elapsed: 0.00907099999312777 s 
+# nodes: 9, Time elapsed: 0.07495919999200851 s 
+# nodes: 10, Time elapsed: 0.7853242999990471 s 
+# nodes: 11, Time elapsed: 8.894550999990315 s 
+
+Batch 39: 
+# nodes: 4, Time elapsed: 0.0987126999971224 s 
+# nodes: 5, Time elapsed: 0.00011700000322889537 s 
+# nodes: 6, Time elapsed: 0.00023269999655894935 s 
+# nodes: 7, Time elapsed: 0.0014756000018678606 s 
+# nodes: 8, Time elapsed: 0.008911999990232289 s 
+# nodes: 9, Time elapsed: 0.07536080000863876 s 
+# nodes: 10, Time elapsed: 0.7529857000045013 s 
+# nodes: 11, Time elapsed: 8.740214400007972 s 
+
+Batch 40: 
+# nodes: 4, Time elapsed: 0.09119289999944158 s 
+# nodes: 5, Time elapsed: 0.00010619999375194311 s 
+# nodes: 6, Time elapsed: 0.0002294000005349517 s 
+# nodes: 7, Time elapsed: 0.0012272000021766871 s 
+# nodes: 8, Time elapsed: 0.008969200003775768 s 
+# nodes: 9, Time elapsed: 0.07583499999600463 s 
+# nodes: 10, Time elapsed: 0.7822424000041792 s 
+# nodes: 11, Time elapsed: 8.805753200009349 s 
+
+Batch 41: 
+# nodes: 4, Time elapsed: 0.09209629999531899 s 
+# nodes: 5, Time elapsed: 0.00011899998935405165 s 
+# nodes: 6, Time elapsed: 0.0002351000002818182 s 
+# nodes: 7, Time elapsed: 0.0012406000023474917 s 
+# nodes: 8, Time elapsed: 0.009065799997188151 s 
+# nodes: 9, Time elapsed: 0.08463079998909961 s 
+# nodes: 10, Time elapsed: 0.7758884000068065 s 
+# nodes: 11, Time elapsed: 8.768181699997513 s 
+
+Batch 42: 
+# nodes: 4, Time elapsed: 0.09107899999071378 s 
+# nodes: 5, Time elapsed: 0.00011220001033507288 s 
+# nodes: 6, Time elapsed: 0.000231999991228804 s 
+# nodes: 7, Time elapsed: 0.0012522000033641234 s 
+# nodes: 8, Time elapsed: 0.00911620000260882 s 
+# nodes: 9, Time elapsed: 0.07460240001091734 s 
+# nodes: 10, Time elapsed: 0.763234600002761 s 
+# nodes: 11, Time elapsed: 8.826000399989425 s 
+
+Batch 43: 
+# nodes: 4, Time elapsed: 0.09059649999835528 s 
+# nodes: 5, Time elapsed: 0.00010609999299049377 s 
+# nodes: 6, Time elapsed: 0.00023049999435897917 s 
+# nodes: 7, Time elapsed: 0.0012313000042922795 s 
+# nodes: 8, Time elapsed: 0.008936400001402944 s 
+# nodes: 9, Time elapsed: 0.07468369998969138 s 
+# nodes: 10, Time elapsed: 0.7345917000056943 s 
+# nodes: 11, Time elapsed: 8.918635100009851 s 
+
+Batch 44: 
+# nodes: 4, Time elapsed: 0.09088849999534432 s 
+# nodes: 5, Time elapsed: 0.00011920000542886555 s 
+# nodes: 6, Time elapsed: 0.00023259999579750001 s 
+# nodes: 7, Time elapsed: 0.0012289000005694106 s 
+# nodes: 8, Time elapsed: 0.009049899992533028 s 
+# nodes: 9, Time elapsed: 0.07490609999513254 s 
+# nodes: 10, Time elapsed: 0.7292097000026843 s 
+# nodes: 11, Time elapsed: 8.959820200005197 s 
+
+Batch 45: 
+# nodes: 4, Time elapsed: 0.0914245000021765 s 
+# nodes: 5, Time elapsed: 0.00011789999553002417 s 
+# nodes: 6, Time elapsed: 0.00023439999495167285 s 
+# nodes: 7, Time elapsed: 0.0012692000018432736 s 
+# nodes: 8, Time elapsed: 0.009319599994341843 s 
+# nodes: 9, Time elapsed: 0.07454279999365099 s 
+# nodes: 10, Time elapsed: 0.7280066999956034 s 
+# nodes: 11, Time elapsed: 9.930756999994628 s 
+
+Batch 46: 
+# nodes: 4, Time elapsed: 0.09187839999503922 s 
+# nodes: 5, Time elapsed: 0.00011619999713730067 s 
+# nodes: 6, Time elapsed: 0.00023049999435897917 s 
+# nodes: 7, Time elapsed: 0.0012473999959183857 s 
+# nodes: 8, Time elapsed: 0.009938300005160272 s 
+# nodes: 9, Time elapsed: 0.08832719999190886 s 
+# nodes: 10, Time elapsed: 0.7400908999989042 s 
+# nodes: 11, Time elapsed: 9.512319599991315 s 
+
+Batch 47: 
+# nodes: 4, Time elapsed: 0.09059189999243245 s 
+# nodes: 5, Time elapsed: 0.00010469999688211828 s 
+# nodes: 6, Time elapsed: 0.0002384999970672652 s 
+# nodes: 7, Time elapsed: 0.0012388000031933188 s 
+# nodes: 8, Time elapsed: 0.00980459999118466 s 
+# nodes: 9, Time elapsed: 0.07493950000207406 s 
+# nodes: 10, Time elapsed: 0.7373967999883462 s 
+# nodes: 11, Time elapsed: 9.177356799991685 s 
+
+Batch 48: 
+# nodes: 4, Time elapsed: 0.09026870000525378 s 
+# nodes: 5, Time elapsed: 0.00010629999451339245 s 
+# nodes: 6, Time elapsed: 0.00023320000036619604 s 
+# nodes: 7, Time elapsed: 0.001241300007677637 s 
+# nodes: 8, Time elapsed: 0.010005999996792525 s 
+# nodes: 9, Time elapsed: 0.07471369999984745 s 
+# nodes: 10, Time elapsed: 0.807267000011052 s 
+# nodes: 11, Time elapsed: 8.763559600003646 s 
+
+Batch 49: 
+# nodes: 4, Time elapsed: 0.09117739999783225 s 
+# nodes: 5, Time elapsed: 0.00011700000322889537 s 
+# nodes: 6, Time elapsed: 0.00023330000112764537 s 
+# nodes: 7, Time elapsed: 0.0012313000042922795 s 
+# nodes: 8, Time elapsed: 0.00945930001034867 s 
+# nodes: 9, Time elapsed: 0.0795114999928046 s 
+# nodes: 10, Time elapsed: 0.7888706999947317 s 
+# nodes: 11, Time elapsed: 9.559307299990905 s 
+
+Batch 50: 
+# nodes: 4, Time elapsed: 0.09150039999803994 s 
+# nodes: 5, Time elapsed: 0.0001205000007757917 s 
+# nodes: 6, Time elapsed: 0.00023180000425782055 s 
+# nodes: 7, Time elapsed: 0.0012318999943090603 s 
+# nodes: 8, Time elapsed: 0.009077099995920435 s 
+# nodes: 9, Time elapsed: 0.0750531000085175 s 
+# nodes: 10, Time elapsed: 0.8089680000121007 s 
+# nodes: 11, Time elapsed: 8.863765700007207 s 
+
+Batch 51: 
+# nodes: 4, Time elapsed: 0.09114640000916552 s 
+# nodes: 5, Time elapsed: 0.00011550000635907054 s 
+# nodes: 6, Time elapsed: 0.00023800000781193376 s 
+# nodes: 7, Time elapsed: 0.0012331999896559864 s 
+# nodes: 8, Time elapsed: 0.009031599998706952 s 
+# nodes: 9, Time elapsed: 0.07584889999998268 s 
+# nodes: 10, Time elapsed: 0.8234841999947093 s 
+# nodes: 11, Time elapsed: 8.79361519998929 s 
+
+Batch 52: 
+# nodes: 4, Time elapsed: 0.09043159999419004 s 
+# nodes: 5, Time elapsed: 0.00011930000619031489 s 
+# nodes: 6, Time elapsed: 0.0002294000005349517 s 
+# nodes: 7, Time elapsed: 0.0012309000012464821 s 
+# nodes: 8, Time elapsed: 0.009528599999612197 s 
+# nodes: 9, Time elapsed: 0.08500069999718107 s 
+# nodes: 10, Time elapsed: 0.7780878000048688 s 
+# nodes: 11, Time elapsed: 8.792025300004752 s 
+
+Batch 53: 
+# nodes: 4, Time elapsed: 0.0906161000020802 s 
+# nodes: 5, Time elapsed: 0.00010269999620504677 s 
+# nodes: 6, Time elapsed: 0.00023189999046735466 s 
+# nodes: 7, Time elapsed: 0.0012423000007402152 s 
+# nodes: 8, Time elapsed: 0.009030000001075678 s 
+# nodes: 9, Time elapsed: 0.07483909999427851 s 
+# nodes: 10, Time elapsed: 0.7834990999981528 s 
+# nodes: 11, Time elapsed: 8.884066300000995 s 
+
+Batch 54: 
+# nodes: 4, Time elapsed: 0.1045948000100907 s 
+# nodes: 5, Time elapsed: 0.00010309999925084412 s 
+# nodes: 6, Time elapsed: 0.00022590000298805535 s 
+# nodes: 7, Time elapsed: 0.0020053999905940145 s 
+# nodes: 8, Time elapsed: 0.008718600001884624 s 
+# nodes: 9, Time elapsed: 0.07864170000539161 s 
+# nodes: 10, Time elapsed: 0.734913600012078 s 
+# nodes: 11, Time elapsed: 9.124943999995594 s 
+
+Batch 55: 
+# nodes: 4, Time elapsed: 0.10224619999644347 s 
+# nodes: 5, Time elapsed: 0.00010250000923406333 s 
+# nodes: 6, Time elapsed: 0.00023159998818300664 s 
+# nodes: 7, Time elapsed: 0.0023080000100890175 s 
+# nodes: 8, Time elapsed: 0.00887539998802822 s 
+# nodes: 9, Time elapsed: 0.07585360000666697 s 
+# nodes: 10, Time elapsed: 0.7387983999942662 s 
+# nodes: 11, Time elapsed: 8.92893819999881 s 
+
+Batch 56: 
+# nodes: 4, Time elapsed: 0.10160100000211969 s 
+# nodes: 5, Time elapsed: 0.000109500004327856 s 
+# nodes: 6, Time elapsed: 0.00022980000358074903 s 
+# nodes: 7, Time elapsed: 0.0014325000083772466 s 
+# nodes: 8, Time elapsed: 0.009040499993716367 s 
+# nodes: 9, Time elapsed: 0.07453100000566337 s 
+# nodes: 10, Time elapsed: 0.7313472999958321 s 
+# nodes: 11, Time elapsed: 8.942397099992377 s 
+
+Batch 57: 
+# nodes: 4, Time elapsed: 0.10048510000342503 s 
+# nodes: 5, Time elapsed: 0.00010859999747481197 s 
+# nodes: 6, Time elapsed: 0.0002364000101806596 s 
+# nodes: 7, Time elapsed: 0.001450199997634627 s 
+# nodes: 8, Time elapsed: 0.012713299991446547 s 
+# nodes: 9, Time elapsed: 0.07480139999825042 s 
+# nodes: 10, Time elapsed: 0.7258554000000004 s 
+# nodes: 11, Time elapsed: 8.907398800001829 s 
+
+Batch 58: 
+# nodes: 4, Time elapsed: 0.09785760000522714 s 
+# nodes: 5, Time elapsed: 9.940000018104911e-05 s 
+# nodes: 6, Time elapsed: 0.0002314000012120232 s 
+# nodes: 7, Time elapsed: 0.0014160999999148771 s 
+# nodes: 8, Time elapsed: 0.009085400000913069 s 
+# nodes: 9, Time elapsed: 0.07511629999498837 s 
+# nodes: 10, Time elapsed: 0.7603202000027522 s 
+# nodes: 11, Time elapsed: 8.90883310000936 s 
+
+Batch 59: 
+# nodes: 4, Time elapsed: 0.10360930000024382 s 
+# nodes: 5, Time elapsed: 0.00010949998977594078 s 
+# nodes: 6, Time elapsed: 0.0002384999970672652 s 
+# nodes: 7, Time elapsed: 0.0014681000029668212 s 
+# nodes: 8, Time elapsed: 0.009040699995239265 s 
+# nodes: 9, Time elapsed: 0.0746967000013683 s 
+# nodes: 10, Time elapsed: 0.7376911000028485 s 
+# nodes: 11, Time elapsed: 8.772045100005926 s 
+
+Batch 60: 
+# nodes: 4, Time elapsed: 0.10057640000013635 s 
+# nodes: 5, Time elapsed: 0.00010940000356640667 s 
+# nodes: 6, Time elapsed: 0.00023009999131318182 s 
+# nodes: 7, Time elapsed: 0.0014001000090502203 s 
+# nodes: 8, Time elapsed: 0.00896229999489151 s 
+# nodes: 9, Time elapsed: 0.07562500001222361 s 
+# nodes: 10, Time elapsed: 0.7788180000061402 s 
+# nodes: 11, Time elapsed: 8.884985799988499 s 
+
+Batch 61: 
+# nodes: 4, Time elapsed: 0.10315330000594258 s 
+# nodes: 5, Time elapsed: 9.800000407267362e-05 s 
+# nodes: 6, Time elapsed: 0.00023429999419022352 s 
+# nodes: 7, Time elapsed: 0.0014327999961096793 s 
+# nodes: 8, Time elapsed: 0.00909200000751298 s 
+# nodes: 9, Time elapsed: 0.07525420001184102 s 
+# nodes: 10, Time elapsed: 0.7817334000137635 s 
+# nodes: 11, Time elapsed: 8.812129699988873 s 
+
+Batch 62: 
+# nodes: 4, Time elapsed: 0.0995727999979863 s 
+# nodes: 5, Time elapsed: 0.00021220000053290278 s 
+# nodes: 6, Time elapsed: 0.0004579999949783087 s 
+# nodes: 7, Time elapsed: 0.003782400002819486 s 
+# nodes: 8, Time elapsed: 0.019014299992704764 s 
+# nodes: 9, Time elapsed: 0.07557960000121966 s 
+# nodes: 10, Time elapsed: 0.7794943000044441 s 
+# nodes: 11, Time elapsed: 8.764021199996932 s 
+
+Batch 63: 
+# nodes: 4, Time elapsed: 0.10025260000838898 s 
+# nodes: 5, Time elapsed: 0.00011649999942164868 s 
+# nodes: 6, Time elapsed: 0.00023150000197347254 s 
+# nodes: 7, Time elapsed: 0.0014073999918764457 s 
+# nodes: 8, Time elapsed: 0.009157299995422363 s 
+# nodes: 9, Time elapsed: 0.08600090000254568 s 
+# nodes: 10, Time elapsed: 0.7776195999904303 s 
+# nodes: 11, Time elapsed: 8.869482900001458 s 
+
+Batch 64: 
+# nodes: 4, Time elapsed: 0.10100640000018757 s 
+# nodes: 5, Time elapsed: 0.00010069999552797526 s 
+# nodes: 6, Time elapsed: 0.00023949999012984335 s 
+# nodes: 7, Time elapsed: 0.0014253000117605552 s 
+# nodes: 8, Time elapsed: 0.00894960000005085 s 
+# nodes: 9, Time elapsed: 0.07471719999739435 s 
+# nodes: 10, Time elapsed: 0.7850201999972342 s 
+# nodes: 11, Time elapsed: 8.894412299996475 s 
+
+Batch 65: 
+# nodes: 4, Time elapsed: 0.1077254000119865 s 
+# nodes: 5, Time elapsed: 0.00011419999646022916 s 
+# nodes: 6, Time elapsed: 0.00023040000814944506 s 
+# nodes: 7, Time elapsed: 0.002514699997846037 s 
+# nodes: 8, Time elapsed: 0.008718099998077378 s 
+# nodes: 9, Time elapsed: 0.07558499999868218 s 
+# nodes: 10, Time elapsed: 0.7472999999881722 s 
+# nodes: 11, Time elapsed: 9.185365700002876 s 
+
+Batch 66: 
+# nodes: 4, Time elapsed: 0.10244139999849722 s 
+# nodes: 5, Time elapsed: 0.00013320001016836613 s 
+# nodes: 6, Time elapsed: 0.00027350000164005905 s 
+# nodes: 7, Time elapsed: 0.001386800009640865 s 
+# nodes: 8, Time elapsed: 0.008682200001203455 s 
+# nodes: 9, Time elapsed: 0.07529280000017025 s 
+# nodes: 10, Time elapsed: 0.7420830000046408 s 
+# nodes: 11, Time elapsed: 8.923778700002003 s 
+
+Batch 67: 
+# nodes: 4, Time elapsed: 0.10116619999462273 s 
+# nodes: 5, Time elapsed: 0.0001142999972216785 s 
+# nodes: 6, Time elapsed: 0.0002344999957131222 s 
+# nodes: 7, Time elapsed: 0.0019173000036971644 s 
+# nodes: 8, Time elapsed: 0.008999799989396706 s 
+# nodes: 9, Time elapsed: 0.07516629999736324 s 
+# nodes: 10, Time elapsed: 0.7369291999930283 s 
+# nodes: 11, Time elapsed: 8.89989100000821 s 
+
+Batch 68: 
+# nodes: 4, Time elapsed: 0.10152720000769477 s 
+# nodes: 5, Time elapsed: 0.0001188000023830682 s 
+# nodes: 6, Time elapsed: 0.0002334000018890947 s 
+# nodes: 7, Time elapsed: 0.0014493999915430322 s 
+# nodes: 8, Time elapsed: 0.009037000010721385 s 
+# nodes: 9, Time elapsed: 0.07528450000972953 s 
+# nodes: 10, Time elapsed: 0.7333010000002105 s 
+# nodes: 11, Time elapsed: 8.912140000000363 s 
+
+Batch 69: 
+# nodes: 4, Time elapsed: 0.10245569999096915 s 
+# nodes: 5, Time elapsed: 0.00011319998884573579 s 
+# nodes: 6, Time elapsed: 0.00023210000654216856 s 
+# nodes: 7, Time elapsed: 0.0014116999955149367 s 
+# nodes: 8, Time elapsed: 0.00890820000495296 s 
+# nodes: 9, Time elapsed: 0.07501050000428222 s 
+# nodes: 10, Time elapsed: 0.7275341999920784 s 
+# nodes: 11, Time elapsed: 8.918999499990605 s 
+
+Batch 70: 
+# nodes: 4, Time elapsed: 0.09268309999606572 s 
+# nodes: 5, Time elapsed: 0.00010809999366756529 s 
+# nodes: 6, Time elapsed: 0.00023020000662654638 s 
+# nodes: 7, Time elapsed: 0.0013178999943193048 s 
+# nodes: 8, Time elapsed: 0.00894220000191126 s 
+# nodes: 9, Time elapsed: 0.0821006999904057 s 
+# nodes: 10, Time elapsed: 0.7678478000016185 s 
+# nodes: 11, Time elapsed: 8.820772899998701 s 
+
+Batch 71: 
+# nodes: 4, Time elapsed: 0.09335909999208525 s 
+# nodes: 5, Time elapsed: 0.00011899998935405165 s 
+# nodes: 6, Time elapsed: 0.00024160000612027943 s 
+# nodes: 7, Time elapsed: 0.0015490999940084293 s 
+# nodes: 8, Time elapsed: 0.009099500006414019 s 
+# nodes: 9, Time elapsed: 0.07508910000615288 s 
+# nodes: 10, Time elapsed: 0.7884763999900315 s 
+# nodes: 11, Time elapsed: 8.833865399996284 s 
+
+Batch 72: 
+# nodes: 4, Time elapsed: 0.09781789999397006 s 
+# nodes: 5, Time elapsed: 0.0001083999959519133 s 
+# nodes: 6, Time elapsed: 0.00022839999292045832 s 
+# nodes: 7, Time elapsed: 0.005810000002384186 s 
+# nodes: 8, Time elapsed: 0.008697199999005534 s 
+# nodes: 9, Time elapsed: 0.0753227999957744 s 
+# nodes: 10, Time elapsed: 0.7651279999990948 s 
+# nodes: 11, Time elapsed: 8.807139100012137 s 
+
+Batch 73: 
+# nodes: 4, Time elapsed: 0.09783169999718666 s 
+# nodes: 5, Time elapsed: 0.00011999999696854502 s 
+# nodes: 6, Time elapsed: 0.0002347999979974702 s 
+# nodes: 7, Time elapsed: 0.0012301999959163368 s 
+# nodes: 8, Time elapsed: 0.009042000005138107 s 
+# nodes: 9, Time elapsed: 0.07564819999970496 s 
+# nodes: 10, Time elapsed: 0.7752366000058828 s 
+# nodes: 11, Time elapsed: 8.740090000006603 s 
+
+Batch 74: 
+# nodes: 4, Time elapsed: 0.09718029999930877 s 
+# nodes: 5, Time elapsed: 0.00010930000280495733 s 
+# nodes: 6, Time elapsed: 0.00023179998970590532 s 
+# nodes: 7, Time elapsed: 0.001809200010029599 s 
+# nodes: 8, Time elapsed: 0.008995799988042563 s 
+# nodes: 9, Time elapsed: 0.08547980000730604 s 
+# nodes: 10, Time elapsed: 0.7727330000052461 s 
+# nodes: 11, Time elapsed: 8.833462200011127 s 
+
+Batch 75: 
+# nodes: 4, Time elapsed: 0.09559290000470355 s 
+# nodes: 5, Time elapsed: 0.00012240000069141388 s 
+# nodes: 6, Time elapsed: 0.00023920000239741057 s 
+# nodes: 7, Time elapsed: 0.0029670999938389286 s 
+# nodes: 8, Time elapsed: 0.009031399997184053 s 
+# nodes: 9, Time elapsed: 0.07449369999812916 s 
+# nodes: 10, Time elapsed: 0.7745445000036852 s 
+# nodes: 11, Time elapsed: 8.894513399995049 s 
+
+Batch 76: 
+# nodes: 4, Time elapsed: 0.09796410000126343 s 
+# nodes: 5, Time elapsed: 0.00012129999231547117 s 
+# nodes: 6, Time elapsed: 0.00023710000095888972 s 
+# nodes: 7, Time elapsed: 0.0013245000009192154 s 
+# nodes: 8, Time elapsed: 0.009000299993203953 s 
+# nodes: 9, Time elapsed: 0.07595800000126474 s 
+# nodes: 10, Time elapsed: 0.7371437999972841 s 
+# nodes: 11, Time elapsed: 9.070601400002488 s 
+
+Batch 77: 
+# nodes: 4, Time elapsed: 0.09604750000289641 s 
+# nodes: 5, Time elapsed: 0.00010619999375194311 s 
+# nodes: 6, Time elapsed: 0.0002330999996047467 s 
+# nodes: 7, Time elapsed: 0.0013183999981265515 s 
+# nodes: 8, Time elapsed: 0.008929399991757236 s 
+# nodes: 9, Time elapsed: 0.07477980000840034 s 
+# nodes: 10, Time elapsed: 0.7393286999867996 s 
+# nodes: 11, Time elapsed: 8.974283100003959 s 
+
+Batch 78: 
+# nodes: 4, Time elapsed: 0.09313880000263453 s 
+# nodes: 5, Time elapsed: 0.000102700010756962 s 
+# nodes: 6, Time elapsed: 0.000229199999012053 s 
+# nodes: 7, Time elapsed: 0.0017060999962268397 s 
+# nodes: 8, Time elapsed: 0.008859099994879216 s 
+# nodes: 9, Time elapsed: 0.07479440000315662 s 
+# nodes: 10, Time elapsed: 0.7429664999945089 s 
+# nodes: 11, Time elapsed: 8.904209299987997 s 
+
+Batch 79: 
+# nodes: 4, Time elapsed: 0.0930854000034742 s 
+# nodes: 5, Time elapsed: 0.00011480000102892518 s 
+# nodes: 6, Time elapsed: 0.00023330000112764537 s 
+# nodes: 7, Time elapsed: 0.001229600005899556 s 
+# nodes: 8, Time elapsed: 0.009085400000913069 s 
+# nodes: 9, Time elapsed: 0.07451810000929981 s 
+# nodes: 10, Time elapsed: 0.7413566000032006 s 
+# nodes: 11, Time elapsed: 8.81945270000142 s 
+
+Batch 80: 
+# nodes: 4, Time elapsed: 0.09476010000798851 s 
+# nodes: 5, Time elapsed: 0.00012160000915173441 s 
+# nodes: 6, Time elapsed: 0.00023179998970590532 s 
+# nodes: 7, Time elapsed: 0.0012254000030225143 s 
+# nodes: 8, Time elapsed: 0.009049300002516247 s 
+# nodes: 9, Time elapsed: 0.07469049999781419 s 
+# nodes: 10, Time elapsed: 0.7268886000092607 s 
+# nodes: 11, Time elapsed: 8.897459600004368 s 
+
+Batch 81: 
+# nodes: 4, Time elapsed: 0.09256710000045132 s 
+# nodes: 5, Time elapsed: 0.000119399992399849 s 
+# nodes: 6, Time elapsed: 0.00023779999173711985 s 
+# nodes: 7, Time elapsed: 0.001498500001616776 s 
+# nodes: 8, Time elapsed: 0.009056499999132939 s 
+# nodes: 9, Time elapsed: 0.07476259999384638 s 
+# nodes: 10, Time elapsed: 0.7351751000096556 s 
+# nodes: 11, Time elapsed: 8.759686500008684 s 
+
+Batch 82: 
+# nodes: 4, Time elapsed: 0.09329980000620708 s 
+# nodes: 5, Time elapsed: 0.00011670000094454736 s 
+# nodes: 6, Time elapsed: 0.00022989998979028314 s 
+# nodes: 7, Time elapsed: 0.0012314000050537288 s 
+# nodes: 8, Time elapsed: 0.009002499995403923 s 
+# nodes: 9, Time elapsed: 0.0747962000023108 s 
+# nodes: 10, Time elapsed: 0.7758279999980005 s 
+# nodes: 11, Time elapsed: 8.814229700001306 s 
+
+Batch 83: 
+# nodes: 4, Time elapsed: 0.09264859999530017 s 
+# nodes: 5, Time elapsed: 0.00010760000441223383 s 
+# nodes: 6, Time elapsed: 0.0002330000133952126 s 
+# nodes: 7, Time elapsed: 0.0012315000058151782 s 
+# nodes: 8, Time elapsed: 0.009017300006235018 s 
+# nodes: 9, Time elapsed: 0.07458139999653213 s 
+# nodes: 10, Time elapsed: 0.7630187000031583 s 
+# nodes: 11, Time elapsed: 8.792272699996829 s 
+
+Batch 84: 
+# nodes: 4, Time elapsed: 0.09558220001053996 s 
+# nodes: 5, Time elapsed: 0.00011619999713730067 s 
+# nodes: 6, Time elapsed: 0.00023400000645779073 s 
+# nodes: 7, Time elapsed: 0.0012526999926194549 s 
+# nodes: 8, Time elapsed: 0.00904140000056941 s 
+# nodes: 9, Time elapsed: 0.07477740000467747 s 
+# nodes: 10, Time elapsed: 0.7712182000104804 s 
+# nodes: 11, Time elapsed: 8.73183620000782 s 
+
+Batch 85: 
+# nodes: 4, Time elapsed: 0.09383339999476448 s 
+# nodes: 5, Time elapsed: 0.00011890000314451754 s 
+# nodes: 6, Time elapsed: 0.00023320000036619604 s 
+# nodes: 7, Time elapsed: 0.0012706999987130985 s 
+# nodes: 8, Time elapsed: 0.009037999989232048 s 
+# nodes: 9, Time elapsed: 0.08505300000251736 s 
+# nodes: 10, Time elapsed: 0.7702888999920106 s 
+# nodes: 11, Time elapsed: 8.796915599989006 s 
+
+Batch 86: 
+# nodes: 4, Time elapsed: 0.09272489999420941 s 
+# nodes: 5, Time elapsed: 0.00011439999798312783 s 
+# nodes: 6, Time elapsed: 0.00023079999664332718 s 
+# nodes: 7, Time elapsed: 0.0012669999996433035 s 
+# nodes: 8, Time elapsed: 0.009021599995321594 s 
+# nodes: 9, Time elapsed: 0.07488749999902211 s 
+# nodes: 10, Time elapsed: 0.7776226999994833 s 
+# nodes: 11, Time elapsed: 8.881519800008391 s 
+
+Batch 87: 
+# nodes: 4, Time elapsed: 0.09385280001151841 s 
+# nodes: 5, Time elapsed: 0.00012169999536126852 s 
+# nodes: 6, Time elapsed: 0.0002426999999443069 s 
+# nodes: 7, Time elapsed: 0.0012528000079328194 s 
+# nodes: 8, Time elapsed: 0.008981500010122545 s 
+# nodes: 9, Time elapsed: 0.0748773999948753 s 
+# nodes: 10, Time elapsed: 0.7335561999934725 s 
+# nodes: 11, Time elapsed: 9.132449500000803 s 
+
+Batch 88: 
+# nodes: 4, Time elapsed: 0.09137529999134131 s 
+# nodes: 5, Time elapsed: 0.00012060000153724104 s 
+# nodes: 6, Time elapsed: 0.00023499999952036887 s 
+# nodes: 7, Time elapsed: 0.0012144000065745786 s 
+# nodes: 8, Time elapsed: 0.009035499999299645 s 
+# nodes: 9, Time elapsed: 0.07485110001289286 s 
+# nodes: 10, Time elapsed: 0.7555322999978671 s 
+# nodes: 11, Time elapsed: 8.974889299992356 s 
+
+Batch 89: 
+# nodes: 4, Time elapsed: 0.09396880000713281 s 
+# nodes: 5, Time elapsed: 0.00010580000525806099 s 
+# nodes: 6, Time elapsed: 0.00023049999435897917 s 
+# nodes: 7, Time elapsed: 0.0013266000023577362 s 
+# nodes: 8, Time elapsed: 0.008965100001660176 s 
+# nodes: 9, Time elapsed: 0.074549199998728 s 
+# nodes: 10, Time elapsed: 0.745578200003365 s 
+# nodes: 11, Time elapsed: 9.01058769998781 s 
+
+Batch 90: 
+# nodes: 4, Time elapsed: 0.09506010000768583 s 
+# nodes: 5, Time elapsed: 0.00011649999942164868 s 
+# nodes: 6, Time elapsed: 0.00023049999435897917 s 
+# nodes: 7, Time elapsed: 0.0013662999990629032 s 
+# nodes: 8, Time elapsed: 0.009147100005066022 s 
+# nodes: 9, Time elapsed: 0.07467799998994451 s 
+# nodes: 10, Time elapsed: 0.7275885999988532 s 
+# nodes: 11, Time elapsed: 8.94347949999792 s 
+
+Batch 91: 
+# nodes: 4, Time elapsed: 0.11045419999572914 s 
+# nodes: 5, Time elapsed: 0.00012140000762883574 s 
+# nodes: 6, Time elapsed: 0.0002415999915683642 s 
+# nodes: 7, Time elapsed: 0.0014029000012669712 s 
+# nodes: 8, Time elapsed: 0.009220299994922243 s 
+# nodes: 9, Time elapsed: 0.07508460000099149 s 
+# nodes: 10, Time elapsed: 0.737617799997679 s 
+# nodes: 11, Time elapsed: 8.974284100011573 s 
+
+Batch 92: 
+# nodes: 4, Time elapsed: 0.09638279999489896 s 
+# nodes: 5, Time elapsed: 0.00011719999019987881 s 
+# nodes: 6, Time elapsed: 0.00023240000882651657 s 
+# nodes: 7, Time elapsed: 0.0014177999983076006 s 
+# nodes: 8, Time elapsed: 0.00897699999040924 s 
+# nodes: 9, Time elapsed: 0.08001439999497961 s 
+# nodes: 10, Time elapsed: 0.7287232000089716 s 
+# nodes: 11, Time elapsed: 8.837178500005393 s 
+
+Batch 93: 
+# nodes: 4, Time elapsed: 0.09310389999882318 s 
+# nodes: 5, Time elapsed: 0.00011930000619031489 s 
+# nodes: 6, Time elapsed: 0.00023419999342877418 s 
+# nodes: 7, Time elapsed: 0.001259800003026612 s 
+# nodes: 8, Time elapsed: 0.008958699996583164 s 
+# nodes: 9, Time elapsed: 0.07642409999971278 s 
+# nodes: 10, Time elapsed: 0.771077299999888 s 
+# nodes: 11, Time elapsed: 8.870120799998404 s 
+
+Batch 94: 
+# nodes: 4, Time elapsed: 0.0948011000000406 s 
+# nodes: 5, Time elapsed: 0.00012100000458303839 s 
+# nodes: 6, Time elapsed: 0.0002364999963901937 s 
+# nodes: 7, Time elapsed: 0.001261900004465133 s 
+# nodes: 8, Time elapsed: 0.009239099992555566 s 
+# nodes: 9, Time elapsed: 0.07559490000130609 s 
+# nodes: 10, Time elapsed: 0.7645310999942012 s 
+# nodes: 11, Time elapsed: 8.996806299997843 s 
+
+Batch 95: 
+# nodes: 4, Time elapsed: 0.09920009999768808 s 
+# nodes: 5, Time elapsed: 0.00011530000483617187 s 
+# nodes: 6, Time elapsed: 0.00023949999012984335 s 
+# nodes: 7, Time elapsed: 0.0012282999960007146 s 
+# nodes: 8, Time elapsed: 0.009139800007687882 s 
+# nodes: 9, Time elapsed: 0.07609169998613652 s 
+# nodes: 10, Time elapsed: 0.8003812999959337 s 
+# nodes: 11, Time elapsed: 8.989990000001853 s 
+
+Batch 96: 
+# nodes: 4, Time elapsed: 0.09137989999726415 s 
+# nodes: 5, Time elapsed: 0.00011989999620709568 s 
+# nodes: 6, Time elapsed: 0.0002347999979974702 s 
+# nodes: 7, Time elapsed: 0.0012199999910080805 s 
+# nodes: 8, Time elapsed: 0.009156900006928481 s 
+# nodes: 9, Time elapsed: 0.08846410000114702 s 
+# nodes: 10, Time elapsed: 0.7918902000092203 s 
+# nodes: 11, Time elapsed: 8.930767800004105 s 
+
+Batch 97: 
+# nodes: 4, Time elapsed: 0.09139250000589527 s 
+# nodes: 5, Time elapsed: 0.00011749999248422682 s 
+# nodes: 6, Time elapsed: 0.0002342000079806894 s 
+# nodes: 7, Time elapsed: 0.0015611999988323078 s 
+# nodes: 8, Time elapsed: 0.008970700000645593 s 
+# nodes: 9, Time elapsed: 0.07478930000797845 s 
+# nodes: 10, Time elapsed: 0.7861704999959329 s 
+# nodes: 11, Time elapsed: 9.012028700002702 s 
+
+Batch 98: 
+# nodes: 4, Time elapsed: 0.09104859999206383 s 
+# nodes: 5, Time elapsed: 0.000123099991469644 s 
+# nodes: 6, Time elapsed: 0.0002393000031588599 s 
+# nodes: 7, Time elapsed: 0.0013141999952495098 s 
+# nodes: 8, Time elapsed: 0.009207299997797236 s 
+# nodes: 9, Time elapsed: 0.0759014999930514 s 
+# nodes: 10, Time elapsed: 0.7437682000017958 s 
+# nodes: 11, Time elapsed: 9.11982480000006 s 
+
+Batch 99: 
+# nodes: 4, Time elapsed: 0.09204509999835864 s 
+# nodes: 5, Time elapsed: 0.00010960000508930534 s 
+# nodes: 6, Time elapsed: 0.00023419999342877418 s 
+# nodes: 7, Time elapsed: 0.0013226000010035932 s 
+# nodes: 8, Time elapsed: 0.009029099994222634 s 
+# nodes: 9, Time elapsed: 0.07724500000767875 s 
+# nodes: 10, Time elapsed: 0.7449313999968581 s 
+# nodes: 11, Time elapsed: 9.07421659999818 s 
+
+Average time elapsed between all batches for # nodes, N: 
+# nodes: 4, Average time elapsed: 0.09774082200005069 s
+# nodes: 5, Average time elapsed: 0.00011445499971159734 s
+# nodes: 6, Average time elapsed: 0.00023557799926493317 s
+# nodes: 7, Average time elapsed: 0.001520019000308821 s
+# nodes: 8, Average time elapsed: 0.009195725999161368 s
+# nodes: 9, Average time elapsed: 0.07650333600045997 s
+# nodes: 10, Average time elapsed: 0.7563851440003782 s
+# nodes: 11, Average time elapsed: 8.925654312000114 s

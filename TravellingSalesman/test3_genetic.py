@@ -10,7 +10,7 @@ import genetic as g
 
 
 SETTINGS = {
-    'Batch Size': 100,
+    'Batch Size': 50,
 
     'Num Nodes': 25,
     'Dimensions': (500, 500),
@@ -18,7 +18,7 @@ SETTINGS = {
     'End Node': 0,
 
     'Population': 25,
-    'Max Generations': 250,
+    'Max Generations': 200,
     'Elite Rate': 0,
     'Crossover Rate': 1,
     'Mutation Rate': 1
@@ -100,8 +100,20 @@ def main():
             tmp += data_y[j][i]
         tmp /= batch_size
         avg_elapsed.append(tmp)
-    x = np.array(data_x)
-    y = np.array(avg_elapsed)
+
+    if len(avg_elapsed) >= 50:
+        new_elapsed = []
+        new_x = []
+        for i in range(len(avg_elapsed)):
+            if i % 5 == 0:
+                new_elapsed.append(avg_elapsed[i])
+                new_x.append(data_x[i])
+    else:
+        new_x = data_x
+        new_elapsed = avg_elapsed
+
+    x = np.array(new_x)
+    y = np.array(new_elapsed)
 
     # Output data to .txt file
     with open('Test Results/genetic3_data.txt', 'w') as f:
@@ -110,16 +122,16 @@ def main():
         f.write('\n')
         for i in range(batch_size):
             f.write(f'\nBatch {i}: \n')
-            for j in range(len(x)):
-                f.write(f'Generations: {x[j]}, Time elapsed: {data_y[i][j]} s \n')
+            for j in range(len(data_x)):
+                f.write(f'Generations: {data_x[j]}, Time elapsed: {data_y[i][j]} s \n')
         f.write(f'\nAverage time elapsed between all batches: \n')
-        for i in range(len(x)):
-            f.write(f'Generations: {x[i]}, Average time elapsed: {y[i]} s\n')
+        for i in range(len(data_x)):
+            f.write(f'Generations: {data_x[i]}, Average time elapsed: {avg_elapsed[i]} s\n')
 
     # Plot data
     for i in range(batch_size):
-        plt.plot(data_x, data_y[i])
-    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0))
+        plt.plot(data_x, data_y[i], zorder=0)
+    plt.scatter(x, y, label='Average time elapsed: linear (n) fit', color=(0, 0, 0), zorder=1)
     plt.title(f"Time to Perform Genetic Algorithm with Max Generations N | Num Nodes: {num_nodes} | Pop: {population} |\n| "
               f"Elite Rate: {elite_rate} | Cross Rate: {cross_rate} | Mut Rate: {mut_rate} | Batch Size: {batch_size}")
     plt.xlabel("Max Generations n")
