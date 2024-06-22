@@ -1,5 +1,5 @@
 """
-Class file for genetic algorithm members and methods
+Class file for genetic algorithm
 """
 import numpy as np
 from dataclasses import dataclass

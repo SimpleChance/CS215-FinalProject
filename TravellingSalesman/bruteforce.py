@@ -1,5 +1,5 @@
 """
-Class file for Brute Force solution to the TravellingSalesman problem
+Class file for brute force algorithm
 """
 from tqdm import tqdm
 
