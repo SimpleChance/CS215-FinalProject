@@ -20,12 +20,12 @@ SETTINGS = {
     
     'Random Nodes': True,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
     'Dimensions': (1000, 1000),         # Max and min coords for nodes.
-    'Num Nodes': 100,                    # Brute force will be disabled for node spaces larger than 12.
+    'Num Nodes': 25,                    # Brute force will be disabled for node spaces larger than 12.
     'Start Node': 0,                    # Index of start node.
     'End Node': 0,                      # Index of end node.
 
     'Population Size': 250,             # Population size for the genetic algorithm.
-    'Max Generations': 1000,            # Maximum number of generations for the genetic algorithm.
+    'Max Generations': 500,            # Maximum number of generations for the genetic algorithm.
     'Elite Rate': 0,                    # Determines how many individuals from the previous epoch will survive. (0-1)
     'Crossover Rate': 1,                # Determines how many individuals will reproduce. (0-1)
     'Mutation Rate': 1,                 # Determines the frequency of offspring mutations. (0-1)
