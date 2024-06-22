@@ -181,7 +181,7 @@ class Renderer(object):
         text_surface = self.text_font.render(text, False, (0, 0, 0))
         self.screen.blit(text_surface, pos)
 
-    def draw_frame(self, path, text, opt_path=None):
+    def draw_frame(self, path, text=None, opt_path=None):
         """
             Description: Combines Renderer methods to draw an entire frame and update the screen
             Args: list[int], string
@@ -208,31 +208,32 @@ class Renderer(object):
             self.draw_path(path)
 
         # Draw text
-        self.draw_header(f"Num Nodes:",
-                         [x + self.border_l - 135, y + 10])
-        self.draw_text(text[3],
-                       (x + self.border_l - 135, y + 35))
-        self.draw_header(f"Generation: ",
-                         [x + 15, y + 10])
-        self.draw_text(text[0], (x + 15, y + 35))
-        self.draw_header(f"Elite Rate:",
-                         [x + self.border_l // 2 - 50, y + 10])
-        self.draw_text(text[5], (x + self.border_l // 2 - 50, y + 35))
-        self.draw_header(f"Cross Rate:",
-                         [x + self.border_l // 2 - 50, y + 65])
-        self.draw_text(text[6], (x + self.border_l // 2 - 50, y + 90))
-        self.draw_header(f"Mutation Rate:",
-                         [x + self.border_l // 2 - 50, y + 120])
-        self.draw_text(text[7], (x + self.border_l // 2 - 50, y + 145))
-        self.draw_header(f"Population: ",
-                         [x + 15, y + 65])
-        self.draw_text(text[4], (x + 15, y + 90))
-        self.draw_header(f"Best Fitness:",
-                         [x + 15, y + 120])
-        self.draw_text(text[1], (x + 15, y + 145))
-        self.draw_header(f"Average Fitness:",
-                         [x + 15, y + 175])
-        self.draw_text(text[2], (x + 15, y + 200))
+        if text:
+            self.draw_header(f"Num Nodes:",
+                             [x + self.border_l - 135, y + 10])
+            self.draw_text(text[3],
+                           (x + self.border_l - 135, y + 35))
+            self.draw_header(f"Generation: ",
+                             [x + 15, y + 10])
+            self.draw_text(text[0], (x + 15, y + 35))
+            self.draw_header(f"Elite Rate:",
+                             [x + self.border_l // 2 - 50, y + 10])
+            self.draw_text(text[5], (x + self.border_l // 2 - 50, y + 35))
+            self.draw_header(f"Cross Rate:",
+                             [x + self.border_l // 2 - 50, y + 65])
+            self.draw_text(text[6], (x + self.border_l // 2 - 50, y + 90))
+            self.draw_header(f"Mutation Rate:",
+                             [x + self.border_l // 2 - 50, y + 120])
+            self.draw_text(text[7], (x + self.border_l // 2 - 50, y + 145))
+            self.draw_header(f"Population: ",
+                             [x + 15, y + 65])
+            self.draw_text(text[4], (x + 15, y + 90))
+            self.draw_header(f"Best Fitness:",
+                             [x + 15, y + 120])
+            self.draw_text(text[1], (x + 15, y + 145))
+            self.draw_header(f"Average Fitness:",
+                             [x + 15, y + 175])
+            self.draw_text(text[2], (x + 15, y + 200))
 
         # Update the screen
         self.update()
