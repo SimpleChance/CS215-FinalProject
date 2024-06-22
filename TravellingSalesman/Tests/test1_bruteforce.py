@@ -5,8 +5,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 from tqdm import tqdm
 import time
-import tsp
-import bruteforce as bf
+from TravellingSalesman import tsp
+from TravellingSalesman import bruteforce as bf
 
 
 SETTINGS = {
@@ -66,7 +66,7 @@ def main():
     y = np.array(avg_elapsed)
 
     # Output data to .txt file
-    with open('Test Results/bf_data.txt', 'w') as f:
+    with open('../Test Results/bf_data.txt', 'w') as f:
         f.write('Brute Force test with variable # of nodes, N\n')
         f.write(f'Batch size: {batch_size}\n')
         f.write('\n')

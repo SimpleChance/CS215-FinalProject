@@ -5,8 +5,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 from tqdm import tqdm
 import time
-import tsp
-import genetic as g
+from TravellingSalesman import tsp
+from TravellingSalesman import genetic as g
 
 
 SETTINGS = {
@@ -116,7 +116,7 @@ def main():
     y = np.array(new_elapsed)
 
     # Output data to .txt file
-    with open('Test Results/genetic2_data.txt', 'w') as f:
+    with open('../Test Results/genetic2_data.txt', 'w') as f:
         f.write(f'Genetic test with variable population size: Max population = {max_population}\n')
         f.write(f'Batch size: {batch_size}\n')
         f.write('\n')
