@@ -10,7 +10,7 @@ from TravellingSalesman import divideconquer as dc
 
 
 SETTINGS = {
-    'Batch Size': 10,
+    'Batch Size': 50,
     'Max Num Nodes': 250,
     'Dimensions': (500, 500),
 }
@@ -45,7 +45,6 @@ def main():
 
         progress_bar.update(1)
 
-    # Find average elapsed for all batches
     avg_elapsed = []
     for i in range(len(data_x)):
         tmp = 0
@@ -53,8 +52,20 @@ def main():
             tmp += data_y[j][i]
         tmp /= batch_size
         avg_elapsed.append(tmp)
-    x = np.array(data_x)
-    y = np.array(avg_elapsed)
+
+    if len(avg_elapsed) >= 50:
+        new_elapsed = []
+        new_x = []
+        for i in range(len(avg_elapsed)):
+            if i % 5 == 0:
+                new_elapsed.append(avg_elapsed[i])
+                new_x.append(data_x[i])
+    else:
+        new_x = data_x
+        new_elapsed = avg_elapsed
+
+    x = np.array(new_x)
+    y = np.array(new_elapsed)
 
     # Output data to .txt file
     with open('../Test Results/dc_data.txt', 'w') as f:
@@ -71,7 +82,7 @@ def main():
 
     # Plot data
     for i in range(batch_size):
-        plt.plot(x, data_y[i], zorder=0)
+        plt.plot(data_x, data_y[i], zorder=0)
     plt.scatter(x, y, s=16, color=(0, 0, 0), label='Average time elapsed', zorder=1)
     plt.title(f"Time to Perform Divide and Conquer Heuristic on N Nodes | Batch Size = {batch_size}")
     plt.xlabel("Num Nodes")
