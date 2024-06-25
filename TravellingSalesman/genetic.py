@@ -430,3 +430,38 @@ class GA(object):
         # Determine average fitness and best individual
         self.find_gen_best_fit()
         self.find_avg_fit()
+
+    def run(self):
+        # Initialize Generation 0
+        self.initialize_population()
+
+        # Evaluate the population
+        self.evaluate_population()
+
+        # Sort population
+        self.sort_population_by_fitness()
+
+        # Find average fitness and best_fit
+        self.find_avg_fit()
+        self.find_gen_best_fit()
+
+        for _ in range(self.max_gens):
+            # Select parents and perform crossover
+            offspring = self.generate_offspring()
+
+            # Mutate the offspring
+            offspring = self.mutate_batch(offspring)
+
+            # Evaluate offspring
+            offspring = self.evaluate_population(population=offspring)
+
+            # Sort the offspring by fitness
+            offspring = self.sort_population_by_fitness(offspring)
+
+            # Generate new population
+            self.select_new_population(offspring)
+
+            # Sort population once again for rendering the best path
+            self.sort_population_by_fitness()
+
+        return self.best.fitness, self.avg_gen_fit

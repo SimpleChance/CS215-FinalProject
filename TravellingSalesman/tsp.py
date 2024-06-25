@@ -6,12 +6,23 @@ import os
 
 
 class TSPInstance:
-    def __init__(self, name, nodes, coords, dimensions, best_path=None):
+    def __init__(self, name, num_nodes, nodes, coords, distance_matrix, space_dimensions, best_path=None,
+                 best_path_length=None):
         self.name = name
+        self.num_nodes = num_nodes
         self.nodes = nodes
         self.coords = coords
-        self.dimensions = dimensions
+        self.distance_matrix = distance_matrix
+        self.space_dimensions = space_dimensions
         self.best_path = best_path
+        self.best_path_length = best_path_length
+
+
+def calculate_path_length(path, distance_matrix):
+    distance = 0
+    for i in range(len(path) - 1):
+        distance += distance_matrix[path[i] - 1][path[i + 1] - 1]
+    return distance
 
 
 class TSPParser:
@@ -30,18 +41,24 @@ class TSPParser:
 
     def parse_files(self, tsp_file, opt_tour_file):
         # Parse .tsp file
-        name = os.path.basename(tsp_file)
-        name = os.path.splitext(name)[0]  # Remove .tsp extension
-        nodes, coords, dimensions = self.parse_tsp_file(tsp_file)
+        name = os.path.basename(tsp_file).replace('.tsp', '')
+        nodes, coords = self.parse_tsp_file(tsp_file)
+        num_nodes = len(nodes)
+        distance_matrix = self.calculate_distance_matrix(coords)
+        space_dimensions = self.calculate_space_dimensions(coords)
 
         # Parse .opt.tour file if it exists
         best_path = None
+        best_path_length = None
         if os.path.exists(opt_tour_file):
             best_path = self.parse_opt_tour_file(opt_tour_file)
+            best_path_length = calculate_path_length(best_path, distance_matrix)
 
-        return TSPInstance(name, nodes, coords, dimensions, best_path)
+        return TSPInstance(name, num_nodes, nodes, coords, distance_matrix, space_dimensions, best_path,
+                           best_path_length)
 
-    def parse_tsp_file(self, tsp_file):
+    @staticmethod
+    def parse_tsp_file(tsp_file):
         nodes = []
         coords = []
 
@@ -53,6 +70,7 @@ class TSPParser:
             line = line.strip()
             if line.startswith("NODE_COORD_SECTION"):
                 in_node_section = True
+                continue
             elif line.startswith("EOF"):
                 break
 
@@ -66,19 +84,9 @@ class TSPParser:
                         nodes.append(node_id)
                         coords.append((x, y))
                     except ValueError:
-                        continue  # Skip lines that are not in expected format
+                        continue
 
-        dimensions = self.calculate_dimensions(coords)
-        return nodes, coords, dimensions
-
-    @staticmethod
-    def calculate_dimensions(coords):
-        min_x = min(coord[0] for coord in coords)
-        max_x = max(coord[0] for coord in coords)
-        min_y = min(coord[1] for coord in coords)
-        max_y = max(coord[1] for coord in coords)
-        dimensions = (max_x - min_x, max_y - min_y)
-        return dimensions
+        return nodes, coords
 
     @staticmethod
     def parse_opt_tour_file(opt_tour_file):
@@ -86,12 +94,42 @@ class TSPParser:
             lines = file.readlines()
 
         best_path = []
+        in_tour_section = False
         for line in lines:
             line = line.strip()
-            if line.isdigit():
-                best_path.append(int(line))
+            if line.startswith("TOUR_SECTION"):
+                in_tour_section = True
+                continue
+            if line == "-1" or line == "EOF":
+                break
+
+            if in_tour_section:
+                try:
+                    best_path.append(int(line))
+                except ValueError:
+                    continue
 
         return best_path
+
+    def calculate_distance_matrix(self, coords):
+        num_nodes = len(coords)
+        dist_matrix = np.zeros((num_nodes, num_nodes))
+        for i in range(num_nodes):
+            for j in range(num_nodes):
+                if i != j:
+                    dist_matrix[i][j] = self.distance(coords[i], coords[j])
+        return dist_matrix
+
+    @staticmethod
+    def calculate_space_dimensions(coords):
+        x_coords, y_coords = zip(*coords)
+        min_x, max_x = min(x_coords), max(x_coords)
+        min_y, max_y = min(y_coords), max(y_coords)
+        return (max_x - min_x, max_y - min_y)
+
+    @staticmethod
+    def distance(p1, p2):
+        return np.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
 
     def get_instances(self):
         return self.instances
