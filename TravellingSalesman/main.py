@@ -15,18 +15,18 @@ import genetic as g
 SETTINGS = {
     'Display Dimensions': (750, 600),   # Display Resolution. Keep default for small window.
     'Max_Framerate': 30,                # Maximum framerate the animation will play at.
-    'TSP Instance': 'att48',            # .tsp file name
+    'TSP Instance': 'a280',            # .tsp file name
     "Display": True,                    # Boolean to determine if the animation should play.
     
-    'Random Nodes': True,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
+    'Random Nodes': False,              # Determines if random nodes should be used. Keep true if no .tsp file is given.
     'Dimensions': (1000, 1000),         # Max and min coords for nodes.
-    'Num Nodes': 25,                    # Brute force will be disabled for node spaces larger than 12.
+    'Num Nodes': 250,                    # Brute force will be disabled for node spaces larger than 12.
     'Start Node': 0,                    # Index of start node.
     'End Node': 0,                      # Index of end node.
 
-    'Population Size': 250,             # Population size for the genetic algorithm.
-    'Max Generations': 500,            # Maximum number of generations for the genetic algorithm.
-    'Elite Rate': 0,                    # Determines how many individuals from the previous epoch will survive. (0-1)
+    'Population Size': 500,             # Population size for the genetic algorithm.
+    'Max Generations': 2500,            # Maximum number of generations for the genetic algorithm.
+    'Elite Rate': 0.01,                    # Determines how many individuals from the previous epoch will survive. (0-1)
     'Crossover Rate': 1,                # Determines how many individuals will reproduce. (0-1)
     'Mutation Rate': 1,                 # Determines the frequency of offspring mutations. (0-1)
 
@@ -104,30 +104,30 @@ def main():
 
     # If pre-defined TSP Instance. Must redefine nodes and coords lists.
     else:
-        if exists('TSP Instances/' + tsp_instance_name + '.tsp'):
-            print(f"TSP Instance: {tsp_instance_name + '.tsp'}")
-            with open('TSP Instances/' + tsp_instance_name + '.tsp') as tsp_instance_file:
-                lines = [line.rstrip() for line in tsp_instance_file]
+        tsp_instance_name = SETTINGS['TSP Instance']
+        parser = tsp.TSPParser()
+        for instance in parser.instances:
+            if instance.name == tsp_instance_name:
+                desired_instance = instance
+                coords = instance.coords
+                # for i in range(len(coords)):
+                #     coords[i] = (coords[i][0] * (SETTINGS['Display Dimensions'][0] / instance.space_dimensions[0]), coords[i][1] * (SETTINGS['Display Dimensions'][1] / instance.space_dimensions[1]))
+                num_nodes = instance.num_nodes
+                dimensions = instance.space_dimensions
+                opt_tour = instance.best_path[::]
 
-            num_nodes, nodes, coords, dimensions = tsp.parse_instance(lines)
-        else:
+                break
+        if not desired_instance:
             print(f"File {tsp_instance_name} not found. Exiting...")
             exit()
-
-        # Load the optimum tour if there is one
-        if exists('TSP Instances/' + tsp_instance_name + '.opt.tour'):
-            with open('TSP Instances/' + tsp_instance_name + '.opt.tour') as opt_tour_file:
-                lines = [line.rstrip() for line in opt_tour_file]
-        else:
-            print(f"No optimum path given.")
-
-        if lines:
-            opt_tour = tsp.parse_opt_tour(lines)
 
     # Calculate the distance between each node
     print(f"Computing distances:")
     distances, elapsed2 = timed(tsp.compute_distances, num_nodes, coords)
     print(f"Time elapsed: {elapsed2}s\n")
+
+    if not SETTINGS['Random Nodes']:
+        distances = instance.distance_matrix
 
     """
     Start of Brute Force algorithm

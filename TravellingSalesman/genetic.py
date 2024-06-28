@@ -200,8 +200,10 @@ class GA(object):
             Time Complexity: O(n) : n = length of genes (num nodes)
         """
         fit = 0
+        if min(ind.genes) == 0: tmp = 0
+        else: tmp = 1
         for i in range(len(ind.genes) - 1):
-            fit += self.distance_matrix[ind.genes[i]][ind.genes[i + 1]]
+            fit += self.distance_matrix[ind.genes[i] - tmp][ind.genes[i + 1] - tmp]
         ind.fitness = fit
         if ind.fitness < self.best.fitness and not opt_tour:
             self.best = ind
